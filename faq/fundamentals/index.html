@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>LeoFS Fundamentals - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                FAQ <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        LeoFS Fundamentals
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../admin/setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../admin/setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../admin/setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../admin/setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../admin/settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../admin/settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../admin/settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../admin/settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../admin/settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../admin/protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../admin/protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../admin/protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../admin/system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../admin/system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../admin/system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../admin/system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../admin/system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../admin/system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../admin/system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../admin/system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../admin/system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../admin/system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../admin/system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../admin/index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="current" title="LeoFS Fundamentals" href="./">
+      LeoFS Fundamentals
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="What kind of storage is leofs?" href="#what-kind-of-storage-is-leofs">
+                What kind of storage is leofs?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What are typical uses for LeoFS?" href="#what-are-typical-uses-for-leofs">
+                What are typical uses for LeoFS?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What is benefit for LeoFS users?" href="#what-is-benefit-for-leofs-users">
+                What is benefit for LeoFS users?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What is architecture of LeoFS?" href="#what-is-architecture-of-leofs">
+                What is architecture of LeoFS?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Is there the roadmap of LeoFS?" href="#is-there-the-roadmap-of-leofs">
+                Is there the roadmap of LeoFS?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What language is LeoFS written in?" href="#what-language-is-leofs-written-in">
+                What language is LeoFS written in?
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="faq-leofs-fundamentals">FAQ: LeoFS Fundamentals<a class="headerlink" href="#faq-leofs-fundamentals" title="Permanent link">&para;</a></h1>
+<!-- toc -->
+
+<h2 id="what-kind-of-storage-is-leofs">What kind of storage is leofs?<a class="headerlink" href="#what-kind-of-storage-is-leofs" title="Permanent link">&para;</a></h2>
+<p>LeoFS is a highly scalable, fault-tolerant <a href="" target="_blank">object_storage</a> for the Web. Significantly, LeoFS supports huge amount and various kind unstructured data such as photo, movie, document, log data and so on.</p>
+<p>Operationally, LeoFS features multi-master replication with automated failover and built-in horizontal scaling via ConsistentHashing.</p>
+<ul>
+<li>Related Links:<ul>
+<li><a href="../../">LeoFS Introduction</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="what-are-typical-uses-for-leofs">What are typical uses for LeoFS?<a class="headerlink" href="#what-are-typical-uses-for-leofs" title="Permanent link">&para;</a></h2>
+<p>If you are searching a storage system that is able to store huge amount and various kind of files such as photo, movie, log data and so on, LeoFS is suitable for that.</p>
+<p>This is because LeoFS is a highly available, distributed storage system. Also, LeoFS can be used to store a lot of data efficiently, safely, and inexpensively.</p>
+<ul>
+<li>Related Links:<ul>
+<li><a href="../../">LeoFS Introduction</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-benefit-for-leofs-users">What is benefit for LeoFS users?<a class="headerlink" href="#what-is-benefit-for-leofs-users" title="Permanent link">&para;</a></h2>
+<h3 id="advantage">Advantage<a class="headerlink" href="#advantage" title="Permanent link">&para;</a></h3>
+<p>LeoFS is supporting the following features:</p>
+<ul>
+<li>S3-API Support<ul>
+<li>LeoFS is an Amazon S3 compatible storage system.</li>
+<li>Switch to LeoFS to decrease your cost from more expensive public-cloud solutions.</li>
+</ul>
+</li>
+<li>Large Object Support<ul>
+<li>LeoFS can handle files with more than GB</li>
+</ul>
+</li>
+<li>Multi Data Center Replication<ul>
+<li>LeoFS is a highly scalable, fault-tolerant distributed file system without |SPOF|.</li>
+<li>LeoFS's cluster can be viewed as ONE-HUGE storage. It consists of a set of loosely connected nodes.</li>
+<li>We can build a global scale storage system with easy operations</li>
+</ul>
+</li>
+<li>High Performance without |SPOF|<ul>
+<li>According to the original cache mechanism and sophisticated innternal architecture, LeoFS keeps high performance regardless of amount and kind of data without |SPOF|.</li>
+</ul>
+</li>
+</ul>
+<p>In near future, LeoFS is going to provide the powerful features with LeoFS v1.4, v1.5 and v2.0</p>
+<ul>
+<li>Hybrid Storage<ul>
+<li><code class="codehilite">[v1.0]</code> S3-API and REST-API Support</li>
+<li><code class="codehilite">[v1.2]</code> NFS v3 Support</li>
+<li><code class="codehilite">[v1.5]</code> LeoFS' Native Client</li>
+</ul>
+</li>
+<li>Reduction of Storage Costs<ul>
+<li><code class="codehilite">[v1.5]</code> Erasure Code</li>
+<li><code class="codehilite">[v2.2]</code> Data Deduplication</li>
+</ul>
+</li>
+</ul>
+<h3 id="for-business-managers">For Business Managers<a class="headerlink" href="#for-business-managers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Storing confidential/sensitive data internally</li>
+<li>Saving cost to use commodity servers</li>
+<li>Increasing service level with speedy response</li>
+<li>Expanding business globally</li>
+</ul>
+<h3 id="for-administrators">For Administrators<a class="headerlink" href="#for-administrators" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Easy to install with the packages</li>
+<li>Easy to operate with |LeoCenterDocs|</li>
+</ul>
+<h2 id="what-is-architecture-of-leofs">What is architecture of LeoFS?<a class="headerlink" href="#what-is-architecture-of-leofs" title="Permanent link">&para;</a></h2>
+<p>We've been mainly focusing on <strong>High Availability</strong>, <strong>High Scalability</strong> and <strong>High Cost Performance Ratio</strong> since unstructured data such as images, movies and logs have been exponentially increasing day by day, and we needed to build a cloud storage that can handle all them.</p>
+<p>LeoFS consists of 3 core components, <a href="../../architecture/leo_gateway/">LeoGateway</a>, <a href="../../architecture/leo_storage/">LeoStorage</a> and <a href="../../architecture/leo_manager/">LeoManager</a>. The role of each component is clearly defined.</p>
+<p><img alt="" src="../../assets/leofs-architecture.001.jpg" /></p>
+<p><a href="../../architecture/leo_gateway/">LeoGateway</a> handles http-requests and http-responses from clients when using REST-API OR S3-API. Also, it has the built-in object-cache system.</p>
+<p><a href="../../architecture/leo_storage/">LeoStorage</a> handles <em>GET</em>, <em>PUT</em> and <em>DELETE</em>, Also it has replicator and recoverer in order to keep running and consistency.</p>
+<p><a href="../../architecture/leo_manager/">LeoManager</a> always monitors Gateway(s) and Storage(s). Manger monitors node-status and RING(logical routing-table) checksum to keep running and consistency.</p>
+<p>Also, what we payed attention when we desined LeoFS are the following 3 things:</p>
+<ul>
+<li>To keep always running and No |SPOF|</li>
+<li>To keep high-performance, regardless of the kind and amount of data</li>
+<li>To provide easy administration, we already provide LeoFS CUI and GUI console.</li>
+</ul>
+<h2 id="is-there-the-roadmap-of-leofs">Is there the roadmap of LeoFS?<a class="headerlink" href="#is-there-the-roadmap-of-leofs" title="Permanent link">&para;</a></h2>
+<p>We've published LeoFS milestones on <a href="https://github.com/leo-project/leofs#milestones">LeoFS' GitHub</a>. We may revise the milestones occasionally because there is a possibility to add new features or change priority of implementation. We'll keep them always updated.</p>
+<h2 id="what-language-is-leofs-written-in">What language is LeoFS written in?<a class="headerlink" href="#what-language-is-leofs-written-in" title="Permanent link">&para;</a></h2>
+<p>LeoFS depends on <a href="https://www.erlang.org/" target="_blank">Erlang</a>,  and some LeoFS' libraries are implemented by C/C++.</p>
+<ul>
+<li>Related Links:<ul>
+<li><a href="../../">LeoFS Introduction</a></li>
+<li><a href="https://github.com/leo-project/leofs#milestones" target="_blank">LeoFS Repository on GitHub</a></li>
+</ul>
+</li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../../benchmark/README/" title="Benchmark">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Benchmark
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../limits/" title="LeoFS Limits">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                LeoFS Limits
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

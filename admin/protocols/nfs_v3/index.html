@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>NFS v3 - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                Interface <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        NFS v3
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="NFS v3" href="./">
+      NFS v3
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Pre-requirement" href="#pre-requirement">
+                Pre-requirement
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Configuration" href="#configuration">
+                Configuration
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Installation" href="#installation">
+                Installation
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Start LeoFS as a NFS Server with other dependent programs" href="#start-leofs-as-a-nfs-server-with-other-dependent-programs">
+                Start LeoFS as a NFS Server with other dependent programs
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Confirm that NFS works" href="#confirm-that-nfs-works">
+                Confirm that NFS works
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Limits" href="#limits">
+                Limits
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="interface-nfs-v3">Interface: NFS v3<a class="headerlink" href="#interface-nfs-v3" title="Permanent link">&para;</a></h1>
+<h2 id="pre-requirement">Pre-requirement<a class="headerlink" href="#pre-requirement" title="Permanent link">&para;</a></h2>
+<p>We have checked the <a href="https://en.wikipedia.org/wiki/Network_File_System" target="_blank">NFSv3</a> server feature with CentOS 6.5, 7.x and Ubuntu Server 14.04, 16.04 LTS, but we did not strictly test other platforms, FreeBSD and SmartOS yet.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Update LeoGateway's protocol configuration to <code class="codehilite">nfs</code>, and configure NFS related configurations in your <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_gateway/priv/leo_gateway.conf">LeoGateway configuration</a></p>
+<pre class="codehilite"><code class="language-ini linenums">## --------------------------------------------------------------------
+## GATEWAY Protocol
+## --------------------------------------------------------------------
+## Gateway Protocol to use: [s3 | rest | embed | nfs]
+protocol = nfs
+.
+.
+.
+## --------------------------------------------------------------------
+## GATEWAY - NFS-related configurations
+## --------------------------------------------------------------------
+## Mountd's port number
+nfs.mountd.port = 22050
+
+## Mountd's the number of acceptors
+nfs.mountd.acceptors = 128
+
+## NFSd's port number
+nfs.nfsd.port = 2049
+
+## NFSd's the number of acceptors
+nfs.nfsd.acceptors = 128</code></pre>
+
+
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="centos-6x-7x">CentOS 6.x / 7.x<a class="headerlink" href="#centos-6x-7x" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-bash linenums">$ sudo yum install nfs-utils</code></pre>
+
+
+<h3 id="ubnutu-1404-1604">Ubnutu 14.04 / 16.04<a class="headerlink" href="#ubnutu-1404-1604" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-bash linenums">$ sudo apt-get install nfs-common</code></pre>
+
+
+<h2 id="start-leofs-as-a-nfs-server-with-other-dependent-programs">Start LeoFS as a NFS Server with other dependent programs<a class="headerlink" href="#start-leofs-as-a-nfs-server-with-other-dependent-programs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Start a LeoFS storage system<ul>
+<li>Ref: <a href="../../../installation/quick/">Quick Installation and Setup</a></li>
+<li>Ref: <a href="../../../installation/cluster/">Building a LeoFS' cluster with Ansible</a></li>
+</ul>
+</li>
+<li>Start <a href="https://linux.die.net/man/8/rpcbind" target="_blank">rpcbind</a></li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ sudo service rpcbind start</code></pre>
+
+
+<ul>
+<li>Create a bucket and a token for LeoFS' NFSv3 server with <code class="codehilite">leofs-adm gen-nfs-mnt-key &lt;BUCKET&gt; &lt;ACCESS-KEY-ID&gt; &lt;CLIENT-IP_ADDRESS&gt;</code></li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ ./leofs-adm add-bucket test 05236
+OK
+
+$ ./leofs-adm get-buckets
+cluster id   | bucket   | owner       | permissions      | created at
+-------------+----------+-------------+------------------+---------------------------
+leofs_1      | test     | _test_leofs | Me(full_control) | 2014-07-31 10:20:42 +0900
+
+$ ./leofs-adm gen-nfs-mnt-key test 05236 127.0.0.1
+bb5034f0c740148a346ed663ca0cf5157efb439f</code></pre>
+
+
+<ul>
+<li>Create a mount point and Mount</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ sudo mkdir /mnt/leofs
+
+## for Linux - &quot;sudo mount -t nfs -o nolock &lt;host&gt;:/&lt;bucket&gt;/&lt;accesskey_id&gt;/&lt;token&gt; &lt;dir&gt;&quot;
+$ sudo mount -t nfs -o nolock 127.0.0.1:/test/05236/bb5034f0c740148a346ed663ca0cf5157efb439f /mnt/leofs
+
+## for FreeBSD - &quot;sudo mount -t nfs -o nolockd &lt;host&gt;:/&lt;bucket&gt;/&lt;accesskey_id&gt;/&lt;token&gt; &lt;dir&gt;&quot;
+$ sudo mount -t nfs -o nolockd 127.0.0.1:/test/05236/bb5034f0c740148a346ed663ca0cf5157efb439f /mnt/leofs</code></pre>
+
+
+<ul>
+<li>Now you can operate the bucket test in LeoFS as a filesystem via <code class="codehilite">/mnt/leofs</code>.</li>
+</ul>
+<h2 id="confirm-that-nfs-works">Confirm that NFS works<a class="headerlink" href="#confirm-that-nfs-works" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create a file</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ touch /mnt/leofs/newfile
+$ ls -al /mnt/leofs
+
+drwxrwxrwx. 0 root root 4096 Jul 31 10:09 2014 .
+drwxr-xr-x. 6 root root 4096 Jul 11 12:38 2014 ..
+-rw-rw-rw-  0 root root    0 Jul 31 10:25 2014 newfile</code></pre>
+
+
+<ul>
+<li>Modify a file</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ echo &quot;hello world&quot; &gt; /mnt/leofs/newfile
+$ cat /mnt/leofs/newfile
+
+hello world</code></pre>
+
+
+<ul>
+<li>Copy a file</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ cp /mnt/leofs/newfile /mnt/leofs/newfile.copy
+$ ls -al /mnt/leofs
+
+drwxrwxrwx  0 root root 4096 Jul 31 10:09 2014 .
+drwxr-xr-x. 6 root root 4096 Jul 11 12:38 2014 ..
+-rw-rw-rw-  0 root root   12 Jul 31 10:29 2014 newfile
+-rw-rw-rw-  0 root root   12 Jul 31 10:31 2014 newfile.copy</code></pre>
+
+
+<ul>
+<li>Check the file whether to store it into LeoFS with the <code class="codehilite">leofs-adm whereis</code> command</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ ./leofs-adm whereis test/newfile
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+ del?  |           node           |             ring address             |    size    |   checksum   |  # of chunks   |     clock      |             when
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+       | storage_0@127.0.0.1      | 22f3d93762d31abc5f5704f78edf1691     |        12B |   6f5902ac23 |              0 | 4ffe2d105f1f4  | 2014-07-31 10:29:01 +0900
+
+$ ./leofs-adm whereis test/newfile.copy
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+ del?  |           node           |             ring address             |    size    |   checksum   |  # of chunks   |     clock      |             when
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+       | storage_0@127.0.0.1      | d02e1e52d93242d2dcdb98224421a1fb     |        12B |   6f5902ac23 |              0 | 4ffe2d20343a3  | 2014-07-31 10:31:17 +0900</code></pre>
+
+
+<ul>
+<li>Diff files</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ diff /mnt/leofs/newfile /mnt/leofs/newfile.copy</code></pre>
+
+
+<ul>
+<li>Remove a file</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ rm /mnt/leofs/newfile
+$ ls -al /mnt/leofs
+
+drwxrwxrwx  0 root root 4096 Jul 31 10:09 2014 .
+drwxr-xr-x. 6 root root 4096 Jul 11 12:38 2014 ..
+-rw-rw-rw-  0 root root   12 Jul 31 10:31 2014 newfile.copy</code></pre>
+
+
+<ul>
+<li>Check the file whether to remove it into LeoFS with the <code class="codehilite">leofs-adm whereis</code> command</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ ./leofs-adm whereis test/newfile
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+ del?  |           node           |             ring address             |    size    |   checksum   |  # of chunks   |     clock      |             when
+-------+--------------------------+--------------------------------------+------------+--------------+----------------+----------------+----------------------------
+  *    | storage_0@127.0.0.1      | 22f3d93762d31abc5f5704f78edf1691     |         0B |   d41d8cd98f |              0 | 4ffe2e5d9cffe  | 2014-07-31 10:34:50 +0900</code></pre>
+
+
+<ul>
+<li>Create a directory</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ mkdir -p /mnt/leofs/1/2/3
+$ ls -alR /mnt/leofs/1
+
+/mnt/leofs/1:
+drwxrwxrwx 0 root root 4096 Jul 31 19:37 2014 .
+drwxrwxrwx 0 root root 4096 Jul 31 10:09 2014 ..
+drwxrwxrwx 0 root root 4096 Jul 31 10:37 2014 2
+
+/mnt/leofs/1/2:
+drwxrwxrwx 0 root root 4096 Jul 31 19:37 2014 .
+drwxrwxrwx 0 root root 4096 Jul 31 19:37 2014 ..
+drwxrwxrwx 0 root root 4096 Jul 31 10:37 2014 3
+
+/mnt/leofs/1/2/3:
+drwxrwxrwx 0 root root 4096 Jul 31 19:37 2014 .
+drwxrwxrwx 0 root root 4096 Jul 31 19:37 2014 ..</code></pre>
+
+
+<ul>
+<li>Remove files recursively</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">$ rm -rf /mnt/leofs/1/
+$ ls -al /mnt/leofs
+
+drwxrwxrwx  0 root root 4096 Jul 31 10:09 2014 .
+drwxr-xr-x. 6 root root 4096 Jul 11 12:38 2014 ..
+-rw-rw-rw-  0 root root   12 Jul 31 10:31 2014 leofs.copy</code></pre>
+
+
+<p>Other basic file OR directory operations also should work except controlling owners/permissions/symbolic links/special files.</p>
+<h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
+<p>Since LeoFS NFS implementation is still the beta version, there are some limitations. The details are described at <a href="../../../faq/limits/">LeoFS Limits</a>.</p>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a></li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../rest/" title="REST-API">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                REST-API
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../../system_operations/flow/" title="Operation Flow">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Operation Flow
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

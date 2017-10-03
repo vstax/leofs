@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Persistent Configuration - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                System Administration <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Persistent Configuration
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Persistent Configuration" href="./">
+      Persistent Configuration
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Node configuration in /etc/leofs" href="#node-configuration-in-etcleofs">
+                Node configuration in /etc/leofs
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Usage details" href="#usage-details">
+                Usage details
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How to check which configuration directory is used" href="#how-to-check-which-configuration-directory-is-used">
+                How to check which configuration directory is used
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Manual creation of /etc/leofs hierarchy" href="#manual-creation-of-etcleofs-hierarchy">
+                Manual creation of /etc/leofs hierarchy
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="persistent-configuration-location">Persistent Configuration Location<a class="headerlink" href="#persistent-configuration-location" title="Permanent link">&para;</a></h1>
+<h2 id="node-configuration-in-etcleofs">Node configuration in <code class="codehilite">/etc/leofs</code><a class="headerlink" href="#node-configuration-in-etcleofs" title="Permanent link">&para;</a></h2>
+<p>Starting from v1.4.0, LeoFS nodes support loading configuration from <code class="codehilite">/etc/leofs</code> hierarchy. This means that there are two locations from which nodes can load their configuration (but only one can be enabled at any time). Official Linux packages ship a copy of config files in <code class="codehilite">/etc/leofs/leo_*</code>, though the feature itself should work on any system. However, it is <strong>disabled</strong> by default for compatibility with older versions. </p>
+<h3 id="different-configuration-directory-for-each-leofs-version">Different configuration directory for each LeoFS version<a class="headerlink" href="#different-configuration-directory-for-each-leofs-version" title="Permanent link">&para;</a></h3>
+<p><strong>Currently, this is default for all installations.</strong></p>
+<p>Config files are loaded from these locations when <code class="codehilite">/etc/leofs/leofs.conf</code> does not exist, is empty or contains <code class="codehilite">GLOBAL_CONFIG=no</code> (default). "%(version)" here is LeoFS version like "1.3.7":</p>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Full Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manager Master</td>
+<td>/usr/local/leofs/%(version)/leo_manager_0/etc</td>
+</tr>
+<tr>
+<td>Manager Slave</td>
+<td>/usr/local/leofs/%(version)/leo_manager_1/etc</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>/usr/local/leofs/%(version)/leo_storage/etc</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>/usr/local/leofs/%(version)/leo_gateway/etc</td>
+</tr>
+</tbody>
+</table>
+<p>For each LeoFS version, these directories will be different (e.g. <code class="codehilite">/usr/local/leofs/1.3.6/leo_storage/etc</code> and <code class="codehilite">/usr/local/leofs/1.3.7/leo_storage/etc</code>). Because of this, config files needs to be copied into new directory after each upgrade.</p>
+<div class="admonition note">
+<p class="admonition-title">Note: Relative config files locations</p>
+<p>The paths listed above work for default installation, but config files are actually loaded from directory relative to binaries. For example, if Manager Master is located in <code class="codehilite">/home/leofs/leo_manager_master</code>, config files will be picked from <code class="codehilite">/home/leofs/leo_manager_master/etc</code>.</p>
+</div>
+<h3 id="same-configuration-directory-for-all-versions">Same configuration directory for all versions<a class="headerlink" href="#same-configuration-directory-for-all-versions" title="Permanent link">&para;</a></h3>
+<p>For LeoFS v1.4.0 or later, when <code class="codehilite">/etc/leofs/leofs.conf</code> exists and contains <code class="codehilite">GLOBAL_CONFIG=yes</code>, configuration is loaded from these directories - independent from version or binaries location:</p>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Full Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manager Master</td>
+<td>/etc/leofs/leo_manager_0</td>
+</tr>
+<tr>
+<td>Manager Slave</td>
+<td>/etc/leofs/leo_manager_1</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>/etc/leofs/leo_storage</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>/etc/leofs/leo_gateway</td>
+</tr>
+</tbody>
+</table>
+<p>In this case config files don't need to be moved during upgrades. To enable this feature, edit <code class="codehilite">/etc/leofs/leofs.conf</code> file, setting</p>
+<pre class="codehilite"><code class="linenums">GLOBAL_CONFIG=yes</code></pre>
+
+
+<h2 id="usage-details">Usage details<a class="headerlink" href="#usage-details" title="Permanent link">&para;</a></h2>
+<p>The new configuration directories apply to main config files and <a href="../../settings/environment_config/">environment files</a> (leo_manager.conf/.environment, leo_storage.conf/.environment, leo_gateway.conf/.environment). This <strong>does not</strong> apply to anything else by default, e.g. server_cert.pem/server_key.pem won't be picked from <code class="codehilite">/etc/leofs/leo_gateway</code> unless explicitly set so in leo_gateway.conf. It does not apply to .schema files as well, but this can be changed by setting <code class="codehilite">RUNNER_SCHEMA_DIR</code> in .environment file, if required.</p>
+<p>Users have an option of either directly editing main config file (e.g.  <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.conf</code>), or creating a configuration override files in <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d</code>, e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/local.conf</code>. If main config file was changed, all new package upgrades won't touch the changed file, leaving the task of merging new options and changed settings into current configuration to user. It might be a good idea to use configuration override files instead; if main config file was never edited, it will be replaced by newer version during package upgrades, while options that were changed will be loaded from configuration override directory after the main config file.</p>
+<p>Example minimal configuration, override-style is a file <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/20-leo_gateway.conf</code> containing the following:</p>
+<pre class="codehilite"><code class="linenums">nodename = gateway_0@192.168.0.20
+managers = [manager_0@192.168.0.10, manager_1@192.168.0.11]
+
+protocol = s3
+http.port = 8080
+
+## Increase RAM cache
+cache.cache_ram_capacity = 1073741824</code></pre>
+
+
+<h2 id="how-to-check-which-configuration-directory-is-used">How to check which configuration directory is used<a class="headerlink" href="#how-to-check-which-configuration-directory-is-used" title="Permanent link">&para;</a></h2>
+<p>On launch, nodes report which directory they load config files from (also, the same directory is mentioned in "Exec" line of that output). When launching nodes through scripts directly, like <code class="codehilite">/usr/local/leofs/current/leo_manager_1/bin/leo_manager start</code> this information is available in erlang.log.* files. By default these files are located at <code class="codehilite">/usr/local/leofs/current/leo_*/log</code> (unless redefined with RUNNER_LOG_DIR= setting in environment config file). Please check which erlang.log.* file has the most recent date (it might be <em>not</em> erlang.log.1). Example output:</p>
+<pre class="codehilite"><code class="linenums">$ grep -h -e Config -e Exec /usr/local/leofs/current/leo_manager_1/log/erlang.log.3
+Config path: /etc/leofs/leo_manager_1
+Exec: /usr/local/leofs/current/leo_manager_1/erts-8.3/bin/erlexec -heart -boot /usr/local/leofs/current/leo_manager_1/releases/1/leo_manager -mode embedded -config /etc/leofs/leo_manager_1/app.config -args_file /etc/leofs/leo_manager_1/vm.args -- console</code></pre>
+
+
+<p>This shows that configuration was loaded from <code class="codehilite">/etc/leofs/leo_manager_1</code>.</p>
+<p>When launching nodes as <a href="../../system_operations/systemd/">systemd services</a>, this information is stored in journald and available through journalctl:</p>
+<pre class="codehilite"><code class="linenums">$ journalctl -b -l -u leofs-manager-slave | grep -e Config -e Exec
+Sep 29 19:45:42 leo-m1.dev leo_manager[19318]: Config path: /usr/local/leofs/current/leo_manager_1/etc
+Sep 29 19:45:42 leo-m1.dev leo_manager[19318]: Exec: /usr/local/leofs/current/leo_manager_1/erts-9.0/bin/erlexec -noinput -boot /usr/local/leofs/current/leo_manager_1/releases/1/leo_manager -mode embedded -config /usr/local/leofs/current/leo_manager_1/etc/app.config -args_file /usr/local/leofs/current/leo_manager_1/etc/vm.args -- console</code></pre>
+
+
+<p>This shows that configuration was loaded from <code class="codehilite">/usr/local/leofs/current/leo_manager_1/etc</code> and persistent configuration directories in <code class="codehilite">/etc/leofs</code> are <strong>not</strong> used.</p>
+<h2 id="manual-creation-of-etcleofs-hierarchy">Manual creation of /etc/leofs hierarchy<a class="headerlink" href="#manual-creation-of-etcleofs-hierarchy" title="Permanent link">&para;</a></h2>
+<p>This section applies only to non-Linux users and Linux users who are not using official packages.</p>
+<p>Configuration in <code class="codehilite">/etc/leofs</code> can be used even when it's not supplied with official packages; it should work if it's created properly. Here is example how to do it for LeoGateway:</p>
+<ol>
+<li>Create directories: <code class="codehilite">mkdir -p /etc/leofs/leo_gateway</code></li>
+<li>Make sure that config directories are <strong>writable</strong> by user running LeoFS, e.g.  <code class="codehilite">chown leofs:leofs /etc/leofs/leo_gateway</code>. This is crucial, as nodes need to create extra files in that directory at launch.</li>
+<li>Create copy of default configuration file, e.g. <code class="codehilite">cp /usr/local/leofs/%(version)/leo_gateway/etc/leo_gateway.conf /etc/leofs/leo_gateway/</code></li>
+<li>Optionally, create conf.d-style directories for changing only parts of configuration. E.g. <code class="codehilite">mkdir /etc/leofs/leo_gateway/leo_gateway.d</code></li>
+<li>Edit main config file (e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.conf</code>) or create configuration replacement file (e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/local.conf</code>). Optionally, create copy / edit environment file, if needed.</li>
+<li>Create <code class="codehilite">/etc/leofs/leofs.conf</code> and write <code class="codehilite">GLOBAL_CONFIG=yes</code> in there.</li>
+</ol>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../settings/environment_config/">For Administrators / Settings / Environment Configuration</a></li>
+<li><a href="../../system_operations/systemd/">For Administrators / System Operations / Systemd Services</a></li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../log_management/" title="Log Management">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Log Management
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../migration/" title="System Migration">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                System Migration
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

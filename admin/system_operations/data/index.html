@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Data Operations - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                System Operations <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Data Operations
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Data Operations" href="./">
+      Data Operations
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Storage Architecture" href="#storage-architecture">
+                Storage Architecture
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How To Operate Data Compaction" href="#how-to-operate-data-compaction">
+                How To Operate Data Compaction
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Recover Objects" href="#recover-objects">
+                Recover Objects
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="data-operations">Data Operations<a class="headerlink" href="#data-operations" title="Permanent link">&para;</a></h1>
+<p>This section provides information to operate data stored in LeoFS as well as the prior knowledge that gives you the better understanding about what will happen behind the scene when you invoke a command for a data operation.</p>
+<h2 id="storage-architecture">Storage Architecture<a class="headerlink" href="#storage-architecture" title="Permanent link">&para;</a></h2>
+<p>A brief introduction how LeoFS organize data into actual OS files.</p>
+<h3 id="append-only-for-content">Append-Only for Content<a class="headerlink" href="#append-only-for-content" title="Permanent link">&para;</a></h3>
+<p>Once a PUT/DELETE remote procedure call (<strong>RPC</strong>) arrives on LeoStorage appends new blocks including the object information such as the key, data itself and also various associated metadata to the end of a file.</p>
+<p>This <em>Append-Only-File</em> we call <a href="../../../architecture/leo_storage/#data-structure">AVS, Aria Vector Storage</a> which is referenced when retrieving the data through <em>GET RPCs</em>. With its inherent nature of the <em>Append-Only-File</em>, a data-compaction process is needed to clean up the orphaned space in an AVS.</p>
+<h3 id="embedded-kvs-for-metadata">Embedded KVS for Metadata<a class="headerlink" href="#embedded-kvs-for-metadata" title="Permanent link">&para;</a></h3>
+<p>After having succeeded in appending new blocks to an AVS, then leo_object_storage updates a corresponding <strong>KVS</strong> file with the key and its associated metadata <em>(same information stored in the AVS except for the data itself)</em> and its offset where the new blocks stored in AVS as a value. This KVS file is referenced when retrieving the data/metadata through GET/HEAD RPCs.</p>
+<h3 id="message-queue-for-async-operations">Message Queue for Async Operations<a class="headerlink" href="#message-queue-for-async-operations" title="Permanent link">&para;</a></h3>
+<p>Some data can be stored into a <strong>Queue</strong> for processing later in the case</p>
+<ul>
+<li>A PUT/DELETE operation failed</li>
+<li>A Multi DC Replication (<strong>MDCR</strong>) failed</li>
+<li><code class="codehilite">rebalance/recover-(file|node|cluster)</code> invoked through leofs-adm</li>
+</ul>
+<h3 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
+<p>Multiple AVS/KVS pairs can be placed on one node to enable LeoFS handling as much use cases and hardware requirements as possible. See <a href="../../../architecture/leo_storage/#data-structure">Concept and Architecture / LeoStorage's Architecture - Data Structure</a>.</p>
+<ul>
+<li><strong>Container : AVS/KVS pair = 1 : N</strong><ul>
+<li>Multiple AVS/KVS pairs can be stored under one OS directory (We call it <strong>Container</strong>).</li>
+<li>'N' can be specified through <a href="https://github.com/leo-project/leofs/blob/master/apps/leo_storage/priv/leo_storage.conf">leo_storage.conf</a>.</li>
+<li>How to choose optimal 'N'<ul>
+<li>As a data-compaction is executed per AVS/KVS pair, at least the size of a AVS/KVS pair is needed to run data-compaction so that the larger 'N', the less disk space LeoFS uses for data-compaction.</li>
+<li>However the larger N, the more disk seeks LeoFS suffers.</li>
+<li>Tha said, the optimal N is determined by setting the largest value that doesn't affect the online throughput you would expect.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Node : Container = 1 : N</strong><ul>
+<li>Each Container can be stored under a different OS directory.</li>
+<li>N can be specified through leo_storage.conf.</li>
+<li>Setting <code class="codehilite">N &gt; 1</code> can be useful when there are multiple JBOD disks on the node. The one JBOD disk array can be map to the one container.</li>
+</ul>
+</li>
+</ul>
+<h3 id="data-compaction">Data Compaction<a class="headerlink" href="#data-compaction" title="Permanent link">&para;</a></h3>
+<p>This section provides information about what/how data-compaction can affect the online performance.</p>
+<ul>
+<li>Parallelism<ul>
+<li>A data-compaction can be executed across multiple AVS/KVS pairs in parallel.</li>
+<li>The number of data-compaction processes can be specified through an argument of leofs-adm.</li>
+<li>Increasing the number can be useful when the load coming from online is relatively low and want a data-compaction process to boost as much as possible.</li>
+<li>Be careful that too much number can make a data-compaction process slow down.</li>
+</ul>
+</li>
+<li>Concurrent with any operation coming from online.<ul>
+<li>GET/HEAD never be blocked by a data-compaction.</li>
+<li>PUT/DELETE can be blocked while a data-compaction is processing the tail part of an AVS.</li>
+<li>Given that the above limitation, We would recommend suspending a node you are supposed to run a data-compaction if a LeoFS system's cluster handles write intensive workload.</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-operate-data-compaction">How To Operate Data Compaction<a class="headerlink" href="#how-to-operate-data-compaction" title="Permanent link">&para;</a></h2>
+<p>As described in the previous section, A compaction process is needed to remove logically deleted objects and its corresponding metadata.</p>
+<h3 id="state-transition">State Transition<a class="headerlink" href="#state-transition" title="Permanent link">&para;</a></h3>
+<p><img alt="State Transition" src="../../../assets/leofs-compaction-state-transition.png" /></p>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<p>Commands related to Compaction as well as Disk Usage.</p>
+<table>
+<thead>
+<tr>
+<th>Shell</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compaction Commands</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm compact-start &lt;storage-node&gt; (all/&lt;num-of-targets&gt;) [&lt;num-of-compaction-proc&gt;]</code></td>
+<td>Start Compaction (Transfer its state to <strong>running</strong>).<br/><br/><code class="codehilite">num-of-targets</code>: How many AVS/KVS pairs are compacted.<br/><code class="codehilite">num-of-compaction-pro</code>: How many processes are run in parallel.</td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm compact-suspend &lt;storage-node&gt;</code></td>
+<td>Suspend Compaction <em>(Transfer its state to 'suspend' from running)</em>.</td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm compact-resume &lt;storage-node&gt;</code></td>
+<td>Resume Compaction <em>(Transfer its state to 'running' from suspend)</em>.</td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm compact-status &lt;storage-node&gt;</code></td>
+<td>See the Current Compaction Status.</td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm diagnose-start &lt;storage-node&gt;</code></td>
+<td>Start Diagnose (Not actually doing Compaction but scanning all AVS/KVS pairs and reporting what objects/metadatas exist as a file).</td>
+</tr>
+<tr>
+<td><strong>Disk Usage</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm du &lt;storage-node&gt;</code></td>
+<td>See the Current Disk Usage.</td>
+</tr>
+<tr>
+<td><code class="codehilite">leofs-adm du detail &lt;storage-node&gt;</code></td>
+<td>See the Current Disk Usage in detail.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="compact-start">compact-start<a class="headerlink" href="#compact-start" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+## All AVS/KVS pairs on storage_0@127.0.0.1 will be compacted with 3 concurrent processes
+## (default concurrency is 3)
+$ leofs-adm compact-start storage_0@127.0.0.1 all
+OK
+
+## 5 AVS/KVS pairs on storage_0@127.0.0.1 will be compacted with 2 concurrent processes
+$ leofs-adm compact-start storage_0@127.0.0.1 5 2
+OK</code></pre>
+
+
+<h4 id="compact-suspend">compact-suspend<a class="headerlink" href="#compact-suspend" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm compact-suspend storage_0@127.0.0.1
+OK</code></pre>
+
+
+<h4 id="compact-resume">compact-resume<a class="headerlink" href="#compact-resume" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm compact-resume storage_0@127.0.0.1
+OK</code></pre>
+
+
+<h4 id="compact-status">compact-status<a class="headerlink" href="#compact-status" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm compact-status storage_0@127.0.0.1
+        current status: running
+ last compaction start: 2013-03-04 12:39:47 +0900
+         total targets: 64
+  # of pending targets: 5
+  # of ongoing targets: 3
+  # of out of targets : 56</code></pre>
+
+
+<h4 id="diagnose-start">diagnose-start<a class="headerlink" href="#diagnose-start" title="Permanent link">&para;</a></h4>
+<p>See also <strong>diagnosis-log format</strong> to understand the output log format.</p>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm diagnose-start storage_0@127.0.0.1
+OK</code></pre>
+
+
+<h4 id="du">du<a class="headerlink" href="#du" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm du storage_0@127.0.0.1
+ active number of objects: 19968
+  total number of objects: 39936
+   active size of objects: 198256974.0
+    total size of objects: 254725020.0
+     ratio of active size: 77.83%
+    last compaction start: 2013-03-04 12:39:47 +0900
+      last compaction end: 2013-03-04 12:39:55 +0900</code></pre>
+
+
+<h4 id="du-detail">du detail<a class="headerlink" href="#du-detail" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm du detail storage_0@127.0.0.1
+[du(storage stats)]
+                file path: /home/leofs/dev/leofs/package/leofs/storage/avs/object/0.avs
+ active number of objects: 320
+  total number of objects: 640
+   active size of objects: 3206378.0
+    total size of objects: 4082036.0
+     ratio of active size: 78.55%
+    last compaction start: 2013-03-04 12:39:47 +0900
+      last compaction end: 2013-03-04 12:39:55 +0900
+.
+.
+.
+                file path: /home/leofs/dev/leofs/package/leofs/storage/avs/object/63.avs
+ active number of objects: 293
+  total number of objects: 586
+   active size of objects: 2968909.0
+    total size of objects: 3737690.0
+     ratio of active size: 79.43%
+    last compaction start: ____-__-__ __:__:__
+      last compaction end: ____-__-__ __:__:__</code></pre>
+
+
+<h3 id="diagnosis">Diagnosis<a class="headerlink" href="#diagnosis" title="Permanent link">&para;</a></h3>
+<p>This section explains the file format generated by <code class="codehilite">leofs-adm diagnose-start</code> in detail.</p>
+<pre class="codehilite"><code class="language-text linenums">## Example:
+------+------------------------------------------+------------------------------------------------------------+-----------+------------+------------------+--------------------------+----
+Offset| RING's address-id                        | Filename                                                   | Child num | File Size  | Unixtime         | Localtime                |del?
+------+------------------------------------------+------------------------------------------------------------+-----------+------------+------------------+--------------------------+----
+194     296754181484029444656944009564610621293   photo/leo_redundant_manager/Makefile                             0       2034        1413348050768344   2014-10-15 13:40:50 +0900   0
+2400    185993533055981727582172380494809056426   photo/leo_redundant_manager/ebin/leo_redundant_manager.beam      0       24396       1413348050869454   2014-10-15 13:40:50 +0900   0
+38446   53208912738248114804281793572563205919    photo/leo_rpc/.git/refs/remotes/origin/HEAD                      0       33          1413348057441546   2014-10-15 13:40:57 +0900   0
+38658   57520977797167422772945547576980778561    photo/leo_rpc/ebin/leo_rpc_client_utils.beam                     0       2576        1413348057512261   2014-10-15 13:40:57 +0900   0
+69506   187294034498591995039607573685274229706   photo/leo_backend_db/src/leo_backend_db_server.erl               0       13911       1413348068031188   2014-10-15 13:41:08 +0900   0
+83603   316467020376888598364250682951088839795   photo/leo_backend_db/test/leo_backend_db_api_prop.erl            0       3507        1413348068052219   2014-10-15 13:41:08 +0900   1</code></pre>
+
+
+<p>The file is formatted as Tab Separated Values <em>(TSV)</em> except headers <em>(head three lines of a file)</em>. The detail of each column are described below:</p>
+<table>
+<thead>
+<tr>
+<th>Column Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>byte-wise Offset where the object is located in an AVS.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Address ID on RING (Distribute Hash Routing Table).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>File Name.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The Number of Children in a File.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>File Size in bytes.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Timestamp in Unix Time.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Timestamp in Local Time.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Flag (0/1) representing whether the object is removed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recover-objects">Recover Objects<a class="headerlink" href="#recover-objects" title="Permanent link">&para;</a></h2>
+<p>This section provides information about the recovery commands that can be used in order to recover inconsistencies in a LeoFS cluster according to failures.</p>
+<h3 id="commands_1">Commands<a class="headerlink" href="#commands_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Shell</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leofs-adm recover-file \&lt;file-path></td>
+<td>Recover an inconsistent object specified by the file-path.</td>
+</tr>
+<tr>
+<td>leofs-adm recover-node \&lt;storage-node></td>
+<td>Recover all inconsistent objects in the specified storage-node.</td>
+</tr>
+<tr>
+<td>leofs-adm recover-cluster \&lt;cluster-id></td>
+<td>Recover all inconsistent objects in the specified cluster-id.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="recover-file">recover-file<a class="headerlink" href="#recover-file" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm recover-file leo/fast/storage.key
+OK</code></pre>
+
+
+<h4 id="recover-node">recover-node<a class="headerlink" href="#recover-node" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm recover-node storage_0@127.0.0.1
+OK</code></pre>
+
+
+<ul>
+<li>recover-cluster</li>
+</ul>
+<pre class="codehilite"><code class="language-bash linenums">## Example:
+$ leofs-adm recover-cluster cluster-1
+OK</code></pre>
+
+
+<h3 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h3>
+<p>When/How to use recover commands.</p>
+<ul>
+<li>AVS/KVS Broken<ul>
+<li>Invoke <code class="codehilite">recover-node</code> with a node having broken AVS/KVS files.</li>
+</ul>
+</li>
+<li>Queue Broken<ul>
+<li>Invoke <code class="codehilite">recover-node</code> with every node except which having broken Queue files.</li>
+<li>The procedure might be improved in future when <a href="https://github.com/leo-project/leofs/issues/618">issue#618</a> solved.</li>
+</ul>
+</li>
+<li>Disk Broken<ul>
+<li>Invoke <code class="codehilite">suspend</code> with a node having broken Disk arrays and subsequently run <code class="codehilite">leo_storage stop</code>.</li>
+<li>Exchange broken Disk arrays.</li>
+<li>Run <code class="codehilite">leo_storage start</code> and subsequently Invoke <code class="codehilite">resume</code> with the node.</li>
+<li>Invoke <code class="codehilite">recover-node</code> with the node.</li>
+</ul>
+</li>
+<li>Node Broken<ul>
+<li>Invoke <code class="codehilite">detach</code> with a broken node.</li>
+<li>Prepare a new node that will take over all objects assigned to a detached node.</li>
+<li>Invoke <code class="codehilite">rebalance</code>.</li>
+</ul>
+</li>
+<li>Source/Destination Cluster Down<ul>
+<li>Invoke <code class="codehilite">recover-cluster</code> with a downed cluster.</li>
+</ul>
+</li>
+<li>Source/Destination Cluster Down and delete operations on the other side got lost (compacted).<ul>
+<li>Set up the cluster from scratch</li>
+<li>invoke <code class="codehilite">recover-cluster</code> with the new cluster</li>
+<li>See also <a href="https://github.com/leo-project/leofs/issues/636">issue#636</a> for more information.</li>
+</ul>
+</li>
+</ul>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../architecture/leo_storage/">Concept and Architecture / LeoStorage's Architecture</a></li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../cluster/" title="Cluster Operations">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Cluster Operations
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../multi_dc_replication/" title="Multi Data Center Replication">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Multi Data Center Replication
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

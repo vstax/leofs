@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>LeoGateway Settings - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                Settings <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        LeoGateway Settings
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="LeoGateway Settings" href="./">
+      LeoGateway Settings
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Prior Knowledge" href="#prior-knowledge">
+                Prior Knowledge
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Configuration" href="#configuration">
+                Configuration
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="leogateway-settings">LeoGateway Settings<a class="headerlink" href="#leogateway-settings" title="Permanent link">&para;</a></h1>
+<h2 id="prior-knowledge">Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Permanent link">&para;</a></h2>
+<p>LeoGateway is a multi-protocols storage proxy, which supports REST-API over HTTP, Amazon S3-API<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> and NFS v3<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>. LeoGateway provides the object cache feature to handle requests efficiently and to keep the high performance of your storage system.</p>
+<h3 id="other-configurations">Other Configurations<a class="headerlink" href="#other-configurations" title="Permanent link">&para;</a></h3>
+<p>If you want to customize settings like where to place <code class="codehilite">leo_gateway.conf</code>, what user is starting a LeoGateway process and so on, refer <a href="../environment_config/">For Administrators / Settings / Environment Configuration</a> for more information.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="leogateway-configurations">LeoGateway Configurations<a class="headerlink" href="#leogateway-configurations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LeoManager Nodes</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>managers</td>
+<td>Name of LeoManager nodes. This configuration is necessary for communicating with <code class="codehilite">LeoManager's master</code> and <code class="codehilite">LeoManager's slave</code>.<p>( Default: [manager_0@127.0.0.1, manager_1@127.0.0.1] )</p></td>
+</tr>
+<tr>
+<td><strong>LeoGateway Basic</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>Gateway Protocol - [s3/rest/embed/nfs] <p>( Default: s3 )</p></td>
+</tr>
+<tr>
+<td><strong>HTTP Related (S3/REST)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>http.port</td>
+<td>Port number the Gateway uses for HTTP connections <p>( Default: 8080 )</p></td>
+</tr>
+<tr>
+<td>http.num_of_acceptors</td>
+<td>Numbers of processes listening for connections <p>( Default: 128 )</p></td>
+</tr>
+<tr>
+<td>http.max_keepalive</td>
+<td>Maximum number of requests allowed in a single keep-alive session <p>( Default: 4096 )</p></td>
+</tr>
+<tr>
+<td>http.layer_of_dirs</td>
+<td>Maximum number of virtual directory levels <p>( Default: 12 )</p></td>
+</tr>
+<tr>
+<td>http.ssl_port</td>
+<td>Port number the Gateway uses for HTTPS connections <p>( Default: 8443 )</p></td>
+</tr>
+<tr>
+<td>http.ssl_certfile</td>
+<td>SSL Certificate file <p>( Default: ./etc/server_cert.pem )</p></td>
+</tr>
+<tr>
+<td>http.ssl_keyfile</td>
+<td>SSL key file <p>( Default: ./etc/server_key.pem )</p></td>
+</tr>
+<tr>
+<td>http.headers_config_file</td>
+<td>HTTP custom header configuration file <p>( Default: ./etc/http_custom_header.conf )</p></td>
+</tr>
+<tr>
+<td>http.timeout_for_header</td>
+<td>HTTP timeout for reading header<p>( Default: 5000, Unit: <code class="codehilite">msec</code>)</p></td>
+</tr>
+<tr>
+<td>http.timeout_for_body</td>
+<td>HTTP timeout for reading body<p>( Default: 15000, Unit: <code class="codehilite">msec</code>)</p></td>
+</tr>
+<tr>
+<td><strong>Bucket Related</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>bucket_prop_sync_interval</td>
+<td>Synchronization Interval of Bucket Properties<p>( Default: 300, Unit: <code class="codehilite">sec</code> )</p></td>
+</tr>
+<tr>
+<td><strong>NFS-related configurations</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>nfs.mountd.port</td>
+<td>Mountd’s port number <p>( Default: 22050 )</p></td>
+</tr>
+<tr>
+<td>nfs.mountd.acceptors</td>
+<td>Mountd’s the number of acceptors <p>( Default: 128 )</p></td>
+</tr>
+<tr>
+<td>nfs.nfsd.port</td>
+<td>NFSd’s port number <p>( Default: 2049 )</p></td>
+</tr>
+<tr>
+<td>nfs.nfsd.acceptors</td>
+<td>NFSd’s the number of acceptors <p>( Default: 128 )</p></td>
+</tr>
+<tr>
+<td><strong>Large object processing configuration</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>large_object.max_chunked_objs</td>
+<td>Maximum number of chunked objects <p>( Default: 1000 )</p></td>
+</tr>
+<tr>
+<td>large_object.chunked_obj_len</td>
+<td>Length of a chunked object. This value must be &gt;= <code class="codehilite">large_object.reading_chunked_obj_len</code> <p>( Default: 5242880, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>large_object.threshold_of_chunk_len</td>
+<td>Threshold when object is chunked <p>( Default: 5767168, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>large_object.reading_chunked_obj_len</td>
+<td>Read length of a chunked object. This value must be &lt;= <code class="codehilite">large_object.chunked_obj_len</code> <p>( Default: 5242880, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td><strong>Cache configuration</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>cache.http_cache</td>
+<td>Enable HTTP-Cache mode, working like Varnish/Squid. Otherwise as Object Cache<p>( Default: false )</p></td>
+</tr>
+<tr>
+<td>cache.cache_workers</td>
+<td>Number of cache workers <p>( Default: 16 )</p></td>
+</tr>
+<tr>
+<td>cache.cache_ram_capacity</td>
+<td>Memory Cache Capacity, divide across workers. This has to satisfy <code class="codehilite">(8 * 1024 * 1024) * cache.cache_workers &gt;= cache.cache_ram_capacity</code> <p>( Default: 268435456, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>cache.cache_disc_capacity</td>
+<td>Disk Cache Capacity, divide across workers. This has to satisfy <code class="codehilite">(8 * 1024 * 1024) * cache.cache_workers &gt;= cache.cache_disc_capacity</code> <p>( Default: 524288000, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>cache.cache_disc_threshold_len</td>
+<td>Threshold when object is stored in disk cache <p>( Default: 1048576, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>cache.cache_disc_dir_data</td>
+<td>Directory for disk cache data <p>( Default: ./cache/data )</p></td>
+</tr>
+<tr>
+<td>cache.cache_disc_dir_journal</td>
+<td>Directory for disk cache journal <p>( Default: ./cache/journal )</p></td>
+</tr>
+<tr>
+<td><strong>HTTP-Cache related</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>cache.cache_expire</td>
+<td>Cache expiry time <p>( Default: 300, Unit: <code class="codehilite">sec</code>)</p></td>
+</tr>
+<tr>
+<td>cache.cache_max_content_len</td>
+<td>Maximum length of cached object <p>( Default: 1048576, Unit: <code class="codehilite">byte</code> )</td>
+</tr>
+<tr>
+<td>cache.cachable_content_type</td>
+<td>Object types to be cached</td>
+</tr>
+<tr>
+<td>cache.cachable_path_pattern</td>
+<td>Path pattern(s) to be cached (regular expression)</td>
+</tr>
+<tr>
+<td><strong>Watchdog / REX</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>watchdog.rex.is_enabled</td>
+<td>Enables or disables the rex-watchdog which monitors the memory usage of <em>Erlangs RPC component</em>.<p>( Default: true )</p></td>
+</tr>
+<tr>
+<td>watchdog.rex.interval</td>
+<td>An interval of executing the watchdog processing<p>( Default: 10, Unit: <code class="codehilite">sec</code> )</p></td>
+</tr>
+<tr>
+<td><strong>Watchdog / CPU</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>watchdog.cpu.is_enabled</td>
+<td>Enables or disables the CPU-watchdog which monitors both <em>CPU load average</em> and <em>CPU utilization</em><p>( Default: false )</p></td>
+</tr>
+<tr>
+<td>watchdog.cpu.raised_error_times</td>
+<td>Times of raising error to a client<p>( Default: 5 )</p></td>
+</tr>
+<tr>
+<td>watchdog.cpu.interval</td>
+<td>An interval of executing the watchdog processing<p>( Default: 10, Unit: <code class="codehilite">sec</code> )</p></td>
+</tr>
+<tr>
+<td>watchdog.cpu.threshold_cpu_load_avg</td>
+<td>Threshold of CPU load average<p>( Default: 5.0 )</p></td>
+</tr>
+<tr>
+<td>watchdog.cpu.threshold_cpu_util</td>
+<td>Threshold of CPU utilization<p>( Default: 100 )</p></td>
+</tr>
+<tr>
+<td><strong>Watchdog / IO (Erlang VM Internal Traffic)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>watchdog.io.is_enabled</td>
+<td>Enables or disables the IO-watchdog which monitors the <em>Erlang VM Internal Traffic</em> <p>( Default: false )</p></td>
+</tr>
+<tr>
+<td>watchdog.io.interval</td>
+<td>Watchdog interval <p>( Default: 1, Unit: <code class="codehilite">sec</code> )</p></td>
+</tr>
+<tr>
+<td>watchdog.io.threshold_input_per_sec</td>
+<td>Threshold input per second <p>( Default: 134217728, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td>watchdog.io.threshold_output_per_sec</td>
+<td>Threshold output per second <p>( Default: 134217728, Unit: <code class="codehilite">byte</code> )</p></td>
+</tr>
+<tr>
+<td><strong>Timeout</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>timeout.level_1</td>
+<td>Timeout when put object to LeoStorage <em>(~65536 bytes)</em> <p> ( Default: 5000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.level_2</td>
+<td>Timeout when put object to LeoStorage <em>(~131071 bytes)</em> <p> ( Default: 7000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.level_3</td>
+<td>Timeout when put object to LeoStorage <em>(~524287 bytes)</em> <p> ( Default: 10000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.level_4</td>
+<td>Timeout when put object to LeoStorage <em>(~1048576 bytes)</em> <p> ( Default: 20000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.level_5</td>
+<td>Timeout when put object to LeoStorage <em>(1048576~ bytes)</em> <p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.get</td>
+<td>Timeout when get object from LeoStorage<p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td>timeout.ls</td>
+<td>Timeout when list object from LeoStorage<p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
+</tr>
+<tr>
+<td><strong>Log</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>log.log_level</td>
+<td>Log level:<ul><li>0:debug</li><li>1:info</li><li>2:warn</li><li>3:error</li></ul><p>( Default: 1 )</p></td>
+</tr>
+<tr>
+<td>log.is_enable_access_log</td>
+<td>Enables or disables the access-log feature<p>( Default: false )</p></td>
+</tr>
+<tr>
+<td>log.erlang</td>
+<td>Destination of log file(s) of Erlang's log<p>( Default: ./log/erlang )</p></td>
+</tr>
+<tr>
+<td>log.app</td>
+<td>Destination of log file(s) of LeoStorage<p>( Default: ./log/app )</p></td>
+</tr>
+<tr>
+<td>log.member_dir</td>
+<td>Destination of log file(s) of members of storage-cluster<p>( Default: ./log/ring )</p></td>
+</tr>
+<tr>
+<td>log.ring_dir</td>
+<td>Destination of log file(s) of RING<p>( Default: ./log/ring )</p></td>
+</tr>
+<tr>
+<td><strong>Other Directories Settings</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>queue_dir</td>
+<td>Directory of queue for monitoring "RING"<p>( Default: ./work/queue )</p></td>
+</tr>
+<tr>
+<td>snmp_agent</td>
+<td>Directory of SNMP agent configuration<p>( Default: ./snmp/snmpa_gateway_0/LEO-GATEWAY )</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="erlang-vms-related-configurations">Erlang VM's Related Configurations<a class="headerlink" href="#erlang-vms-related-configurations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>The format of the node name is <code class="codehilite">&lt;NAME&gt;@&lt;IP-ADDRESS&gt;</code>, which must be unique always in a LeoFS system<p>( Default: storage_0@127.0.0.1 )</p></td>
+</tr>
+<tr>
+<td>distributed_cookie</td>
+<td>Sets the magic cookie of the node to <code class="codehilite">Cookie</code>. <br/><br/>- See also: <a href="http://erlang.org/doc/reference_manual/distributed.html" target="_blank">Distributed Erlang</a><p>( Default: 401321b4 )</p></td>
+</tr>
+<tr>
+<td>erlang.kernel_poll</td>
+<td>Kernel poll reduces LeoFS' CPU usage when it has hundreds (or more) network connections.<p>( Default: true )</p></td>
+</tr>
+<tr>
+<td>erlang.asyc_threads</td>
+<td>The total number of Erlang aynch threads<p>( Default: 32 )</p></td>
+</tr>
+<tr>
+<td>erlang.max_ports</td>
+<td>The max_ports sets the default value of maximum number of ports.<br/><br/>- See also: <a href="http://erlang.org/doc/man/erlang.html">Erlang erlang:open_port/2</a><p>( Default: 64000 )</p></td>
+</tr>
+<tr>
+<td>erlang.crash_dump</td>
+<td>The output destination of an Erlang crash dump<p>( Default: ./log/erl_crash.dump )</p></td>
+</tr>
+<tr>
+<td>erlang.max_ets_tables</td>
+<td>The maxinum number of <a href="http://erlang.org/doc/man/ets.html" target="_blank">Erlagn ETS</a> tables<p>( Default: 256000 )</p></td>
+</tr>
+<tr>
+<td>erlang.smp</td>
+<td><code class="codehilite">-smp</code> enable and <code class="codehilite">-smp</code> start the Erlang runtime system with <a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" target="_blank">SMP</a> support enabled.<p>( Default: enable )</p></td>
+</tr>
+<tr>
+<td>erlang.schedulers.compaction_of_load</td>
+<td>Enables or disables scheduler compaction of load. If it's enabled, the Erlang VM will attempt to fully load as many scheduler threads as mush as possible.<p>( Default: true )</p></td>
+</tr>
+<tr>
+<td>erlang.schedulers.utilization_balancing</td>
+<td>Enables or disables scheduler utilization balancing of load. By default scheduler utilization balancing is disabled and instead scheduler compaction of load is enabled, which strives for a load distribution that causes as many scheduler threads as possible to be fully loaded (that is, not run out of work).<p>( Default: false )</p></td>
+</tr>
+<tr>
+<td>erlang.distribution_buffer_size</td>
+<td>Sender-side network distribution buffer size <em>(unit: KB)</em><p>( Default: 32768 )</p></td>
+</tr>
+<tr>
+<td>erlang.fullsweep_after</td>
+<td>Option fullsweep_after makes it possible to specify the maximum number of generational collections before forcing a fullsweep, even if there is room on the old heap. Setting the number to zero disables the general collection algorithm, that is, all live data is copied at every garbage collection.<p>( Default: 0 )</p></td>
+</tr>
+<tr>
+<td>erlang.secio</td>
+<td>Enables or disables eager check I/O scheduling. The flag effects when schedulers will check for I/O operations possible to execute, and when such I/O operations will execute.<p>( Default: true )</p></td>
+</tr>
+<tr>
+<td>process_limit</td>
+<td>The maxinum number of Erlang processes. Sets the maximum number of simultaneously existing processes for this system if a Number is passed as value. Valid range for Number is [1024-134217727]<p>( Default: 1048576 )</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes-and-tips-of-the-configuration">Notes and Tips of the Configuration<a class="headerlink" href="#notes-and-tips-of-the-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="cache-consistency-between-leogateway-and-leostorage">Cache Consistency between LeoGateway and LeoStorage<a class="headerlink" href="#cache-consistency-between-leogateway-and-leostorage" title="Permanent link">&para;</a></h4>
+<p>LeoGateway's cache feature does not depend on the consistency level of a cluster. There is a possibility of object inconsistency.</p>
+<p>LeoGateway requests a storage node to compare a cached object's hash value with its stored object's hash value. LeoGateway selects a LeoStorage's node from RING, <em>a distributed hash table</em> by a target object name, then LeoGateway requests a LeoStorage node of the redundant node. If the requested object is inconsistent in the replicas and LeoGateway cached it, a client may get inconsistent objects.</p>
+<p>If you need strong consistency on a LeoFS system, you can disable the cache setting.</p>
+<pre class="codehilite"><code class="language-ini linenums">cache.cache_ram_capacity = 0
+cache.cache_disc_capacity = 0</code></pre>
+
+
+<h4 id="configuration-related-to-disk-cache">Configuration related to Disk Cache<a class="headerlink" href="#configuration-related-to-disk-cache" title="Permanent link">&para;</a></h4>
+<p>A total number of directories to store cache files is equal to <code class="codehilite">cache.cache_workers</code>. A maximum size of a cacheable object per a directory has been determined by <code class="codehilite">cache.cache_disc_capacity / cache.cache_workers</code>. If the size of a requested object more than the maximum size, LeoGateway avoids storing the object into the disk cache.</p>
+<p>And also, when size of a requested object more than <code class="codehilite">cache.cache_max_content_len</code>, LeoGateway similarly refuses to store the object into the disk cache.</p>
+<p><img alt="Figure: Disk Cache Limits" src="../../../assets/leofs-gateway-disk-cache-size.png" /></p>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../architecture/leo_gateway/">Concept and Architecture / LeoGateway's Architecture</a></li>
+<li><a href="../../protocols/s3/">For Administrators / Interface / S3-API</a></li>
+<li><a href="../../protocols/rest/">For Administrators / Interface / REST-API</a></li>
+<li><a href="../../protocols/nfs_v3/">For Administrators / Interface / NFS v3</a></li>
+<li><a href="../../system_operations/s3/">For Administrators / System Operations / S3-API related Operations</a></li>
+<li><a href="../environment_config/">For Administrators / Settings / Environment Configuration</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html" target="_blank">Amazon S3 API</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://de.wikipedia.org/wiki/Network_File_System" target="_blank">Wikipedia: Network File System</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../leo_storage/" title="LeoStorage Settings">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                LeoStorage Settings
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../../protocols/s3/" title="S3-API">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                S3-API
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

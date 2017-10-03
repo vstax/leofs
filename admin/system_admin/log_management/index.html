@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Log Management - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                System Administration <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Log Management
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="current" title="Log Management" href="./">
+      Log Management
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="LeoGateway Access-log" href="#leogateway-access-log">
+                LeoGateway Access-log
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="LeoStorage Data Diagnosis-log" href="#leostorage-data-diagnosis-log">
+                LeoStorage Data Diagnosis-log
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="log-management">Log Management<a class="headerlink" href="#log-management" title="Permanent link">&para;</a></h1>
+<h2 id="leogateway-access-log">LeoGateway Access-log<a class="headerlink" href="#leogateway-access-log" title="Permanent link">&para;</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>LeoGateway provides <code class="codehilite">access-log</code> output feature so that you can investigate requests from users.</p>
+<h3 id="how-to-output-access-log">How To Output Access-log<a class="headerlink" href="#how-to-output-access-log" title="Permanent link">&para;</a></h3>
+<p>Modify <code class="codehilite">access-log</code> configuration item which include <code class="codehilite">leo_gateway.conf</code>. After starting LeoGateway node(s), those nodes output <code class="codehilite">access-log</code> into the local disk, which is under each LeoGateway’s log directory. See more detail <a href="../../settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a>.</p>
+<h4 id="access-log-configuration">Access-log Configuration<a class="headerlink" href="#access-log-configuration" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-ini linenums">## Is enable access-log [true, false]
+log.is_enable_access_log = true</code></pre>
+
+
+<h4 id="leogateways-log-files">LeoGateway's Log Files<a class="headerlink" href="#leogateways-log-files" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th align="right">Log File</th>
+<th>File Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">access-log</td>
+<td>/log/app/access.*</td>
+</tr>
+<tr>
+<td align="right">error-log</td>
+<td>/log/app/error.*</td>
+</tr>
+<tr>
+<td align="right">info-log</td>
+<td>/log/app/info.*</td>
+</tr>
+</tbody>
+</table>
+<pre class="codehilite"><code class="language-text linenums">log/
+├── [ 272 Apr 28 14:13]  app
+│   ├── [  98 Apr 28 14:13]  access -&gt; /leofs/package/leo_gateway/log/app/access.20170428.14.1
+│   ├── [7.4K Apr 28 14:13]  access.20170428.14.1
+│   ├── [  97 Apr 28 14:13]  error -&gt; /leofs/package/leo_gateway/log/app/error.20170428.14.1
+│   ├── [   0 Apr 28 14:13]  error.20170428.14.1
+│   ├── [  96 Apr 28 14:13]  info -&gt; /leofs/package/leo_gateway/log/app/info.20170428.14.1
+│   └── [5.4K Apr 28 14:13]  info.20170428.14.1</code></pre>
+
+
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-text linenums">--------+-------+--------------------+----------+-------+---------------------------------------+-----------------------+----------
+Method  | Bucket| Path               |Child Num |  Size | Timestamp                             | Unixtime              | Response
+--------+-------+--------------------+----------|-------+---------------------------------------+-----------------------+----------
+[HEAD]   photo   photo/1              0          0       2013-10-18 13:28:56.148269 +0900        1381206536148320        500
+[HEAD]   photo   photo/1              0          0       2013-10-18 13:28:56.465670 +0900        1381206536465735        404
+[HEAD]   photo   photo/city/tokyo.png 0          0       2013-10-18 13:28:56.489234 +0900        1381206536489289        200
+[GET]    photo   photo/1              0          1024    2013-10-18 13:28:56.518631 +0900        1381206536518693        500
+[GET]    photo   photo/city/paris.png 0          2048    2013-10-18 13:28:56.550376 +0900        1381206536550444        404
+[PUT]    logs    logs/leofs           1          5242880 2013-10-18 13:28:56.518631 +0900        1381206536518693        500
+[PUT]    logs    logs/leofs           2          5242880 2013-10-18 13:28:56.518631 +0900        1381206536518693        500
+[PUT]    logs    logs/leofs           3          5120    2013-10-18 13:28:56.518631 +0900        1381206536518693        500</code></pre>
+
+
+<h3 id="format">Format<a class="headerlink" href="#format" title="Permanent link">&para;</a></h3>
+<p>An access-log's format is TSV, <em>Tab Separated Values</em>.</p>
+<table>
+<thead>
+<tr>
+<th align="right">Column Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">1</td>
+<td>Method: [HEAD</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Bucket</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Filename (including path)</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Child number of a file</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>File Size (byte)</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Timestamp with timezone</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Unixtime (including micro-second)</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Response (HTTP Status Code)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="leostorage-data-diagnosis-log">LeoStorage Data Diagnosis-log<a class="headerlink" href="#leostorage-data-diagnosis-log" title="Permanent link">&para;</a></h2>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
+<p>LeoStorage provides <code class="codehilite">diagnosis-log</code> output feature so that you can investigate a LeoStorage's data. If you would like to turn on its feature, you need to modify <code class="codehilite">leo_storage.conf</code> which contain LeoStorage's package.</p>
+<h3 id="how-to-output-diagnosis-log">How To Output Diagnosis-log<a class="headerlink" href="#how-to-output-diagnosis-log" title="Permanent link">&para;</a></h3>
+<p>Modify <code class="codehilite">diagnosis-log</code> configuration item which include <code class="codehilite">leo_storage.conf</code>. After executing the <code class="codehilite">diagnose-start</code> command, a specified node outputs <code class="codehilite">diagnosis-log</code> into the local disk, which is under each LeoStorage’s AVS directory. See more detail <a href="../../settings/leo_storage/">For Administrators / Settings / LeoStorage Settings</a>.</p>
+<p>Execute the <code class="codehilite">diagnose-start</code> command with a specified LeoStorage node, then its LeoStorage output diagnosis-log(s) into the local disk, which is under its LeoStorage’s log directory. You can configure its log directory. See more detail <a href="../../../admin/system_operations/data/#diagnosis">For Administrators / System Operations / Data Operations - Diagnosis</a> and <a href="../../settings/leo_storage/">For Administrators / Settings / LeoStorage Settings</a>.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm diagnose-start &lt;storage-node&gt;</code></pre>
+
+
+<h4 id="diagnosis-log-configuration">Diagnosis-log Configuration<a class="headerlink" href="#diagnosis-log-configuration" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-ini linenums">## Output data-diagnosis log
+log.is_enable_diagnosis_log = true</code></pre>
+
+
+<h4 id="leostorages-log-files">LeoStorage's Log Files<a class="headerlink" href="#leostorages-log-files" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th align="right">Log File</th>
+<th>File Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">access-log</td>
+<td>/log/app/access.*</td>
+</tr>
+<tr>
+<td align="right">diagnosis-log</td>
+<td>/avs/log/leo_object_storage_<em>.</em></td>
+</tr>
+<tr>
+<td align="right">error-log</td>
+<td>/log/app/error.*</td>
+</tr>
+<tr>
+<td align="right">info-log</td>
+<td>/log/app/info.*</td>
+</tr>
+</tbody>
+</table>
+<pre class="codehilite"><code class="language-text linenums">## diagnosis-log files
+/leofs/package/leo_storage/avs/log/
+├── [ 106 Apr 28 14:40]  leo_object_storage_0 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_0.20170428.14.2
+├── [ 683 Apr 28 14:40]  leo_object_storage_0.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_0.20170428.14.2
+├── [ 366 Apr 28 14:40]  leo_object_storage_0.report.63660577222
+├── [ 106 Apr 28 14:40]  leo_object_storage_1 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_1.20170428.14.2
+├── [ 779 Apr 28 14:40]  leo_object_storage_1.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_1.20170428.14.2
+├── [ 366 Apr 28 14:40]  leo_object_storage_1.report.63660577222
+├── [ 106 Apr 28 14:40]  leo_object_storage_2 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_2.20170428.14.2
+├── [ 786 Apr 28 14:40]  leo_object_storage_2.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_2.20170428.14.2
+├── [ 368 Apr 28 14:40]  leo_object_storage_2.report.63660577223
+├── [ 106 Apr 28 14:40]  leo_object_storage_3 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_3.20170428.14.2
+├── [1.3K Apr 28 14:40]  leo_object_storage_3.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_3.20170428.14.2
+├── [ 366 Apr 28 14:40]  leo_object_storage_3.report.63660577223
+├── [ 106 Apr 28 14:40]  leo_object_storage_4 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_4.20170428.14.2
+├── [1.3K Apr 28 14:40]  leo_object_storage_4.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_4.20170428.14.2
+├── [ 368 Apr 28 14:40]  leo_object_storage_4.report.63660577224
+├── [ 106 Apr 28 14:40]  leo_object_storage_5 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_5.20170428.14.2
+├── [ 943 Apr 28 14:40]  leo_object_storage_5.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_5.20170428.14.2
+├── [ 366 Apr 28 14:40]  leo_object_storage_5.report.63660577225
+├── [ 106 Apr 28 14:40]  leo_object_storage_6 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_6.20170428.14.2
+├── [1.5K Apr 28 14:40]  leo_object_storage_6.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_6.20170428.14.2
+├── [ 368 Apr 28 14:40]  leo_object_storage_6.report.63660577225
+├── [ 106 Apr 28 14:40]  leo_object_storage_7 -&gt; /leofs/package/leo_storage/avs/log/leo_object_storage_7.20170428.14.2
+├── [1.1K Apr 28 14:40]  leo_object_storage_7.20170428.14.1
+├── [   0 Apr 28 14:40]  leo_object_storage_7.20170428.14.2
+└── [ 368 Apr 28 14:40]  leo_object_storage_7.report.63660577226
+
+0 directories, 32 files</code></pre>
+
+
+<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-text linenums">## Example:
+------+------------------------------------------+------------------------------------------------------------+-----------+------------+------------------+--------------------------+----
+Offset| RING's address-id                        | Filename                                                   | Child num | File Size  | Unixtime         | Localtime                |del?
+------+------------------------------------------+------------------------------------------------------------+-----------+------------+------------------+--------------------------+----
+194     296754181484029444656944009564610621293   photo/leo_redundant_manager/Makefile                             0       2034        1413348050768344   2014-10-15 13:40:50 +0900   0
+2400    185993533055981727582172380494809056426   photo/leo_redundant_manager/ebin/leo_redundant_manager.beam      0       24396       1413348050869454   2014-10-15 13:40:50 +0900   0
+38446   53208912738248114804281793572563205919    photo/leo_rpc/.git/refs/remotes/origin/HEAD                      0       33          1413348057441546   2014-10-15 13:40:57 +0900   0
+38658   57520977797167422772945547576980778561    photo/leo_rpc/ebin/leo_rpc_client_utils.beam                     0       2576        1413348057512261   2014-10-15 13:40:57 +0900   0
+69506   187294034498591995039607573685274229706   photo/leo_backend_db/src/leo_backend_db_server.erl               0       13911       1413348068031188   2014-10-15 13:41:08 +0900   0
+83603   316467020376888598364250682951088839795   photo/leo_backend_db/test/leo_backend_db_api_prop.erl            0       3507        1413348068052219   2014-10-15 13:41:08 +0900   1</code></pre>
+
+
+<h3 id="format_1">Format<a class="headerlink" href="#format_1" title="Permanent link">&para;</a></h3>
+<p>A diagnose-log's format is TSV, <em>Tab Separated Values</em>.</p>
+<table>
+<thead>
+<tr>
+<th align="right">Column Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">1</td>
+<td>Offset of the AVS-file</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>RING’s address id (routing-table)</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Filename</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Child number of a file</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>File Size (byte)</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Timestamp - unixtime</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Timestamp - localtime</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Removed file?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a></li>
+<li><a href="../../settings/leo_storage/">For Administrators / Settings / LeoStorage Settings</a></li>
+<li><a href="../../../admin/system_operations/data/#diagnosis">For Administrators / System Operations / Data Operations - Diagnosis</a></li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../../system_operations/multi_dc_replication/" title="Multi Data Center Replication">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Multi Data Center Replication
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../persistent_configuration/" title="Persistent Configuration">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Persistent Configuration
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

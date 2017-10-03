@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>LeoFS Administration - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                FAQ <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        LeoFS Administration
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../admin/setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../admin/setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../admin/setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../admin/setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../admin/settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../admin/settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../admin/settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../admin/settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../admin/settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../admin/protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../admin/protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../admin/protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../../admin/system_operations/flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../../admin/system_operations/systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="S3-API related Operations" href="../../admin/system_operations/s3/">
+      S3-API related Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../../admin/system_operations/cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../../admin/system_operations/data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../../admin/system_operations/multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../admin/system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../admin/system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../admin/system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../admin/system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../admin/system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../admin/index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="LeoFS Administration" href="./">
+      LeoFS Administration
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Where can I get the packages for LeoFS?" href="#where-can-i-get-the-packages-for-leofs">
+                Where can I get the packages for LeoFS?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How can I run my LeoFS cluster automatically?" href="#how-can-i-run-my-leofs-cluster-automatically">
+                How can I run my LeoFS cluster automatically?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How do multiple users login into LeoFS Manager's console at the same time?" href="#how-do-multiple-users-login-into-leofs-managers-console-at-the-same-time">
+                How do multiple users login into LeoFS Manager's console at the same time?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="The result of the du command can be different with the actual disk-usage" href="#the-result-of-the-du-command-can-be-different-with-the-actual-disk-usage">
+                The result of the du command can be different with the actual disk-usage
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="When issueing the recover node command the LeoFS can get into high load" href="#when-issueing-the-recover-node-command-the-leofs-can-get-into-high-load">
+                When issueing the recover node command the LeoFS can get into high load
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What should I do when Too many processes errors happen?" href="#what-should-i-do-when-too-many-processes-errors-happen">
+                What should I do when Too many processes errors happen?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How do I set "a number of containers" at LeoFS Storage configuration?" href="#how-do-i-set-a-number-of-containers-at-leofs-storage-configuration">
+                How do I set "a number of containers" at LeoFS Storage configuration?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="leo_storage can not start due to "enif_send_failed on non smp vm"" href="#leo_storage-can-not-start-due-to-enif_send_failed-on-non-smp-vm">
+                leo_storage can not start due to "enif_send_failed on non smp vm"
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Why is the speed of rebalance/recover command too slow?" href="#why-is-the-speed-of-rebalancerecover-command-too-slow">
+                Why is the speed of rebalance/recover command too slow?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Why does LeoFS's SNMP I/F give me wrong values(0) instead of correct values?" href="#why-does-leofss-snmp-if-give-me-wrong-values0-instead-of-correct-values">
+                Why does LeoFS's SNMP I/F give me wrong values(0) instead of correct values?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="When adding a new storage node, that node doesn't appear with leofs-adm status, Why?" href="#when-adding-a-new-storage-node-that-node-doesnt-appear-with-leofs-adm-status-why">
+                When adding a new storage node, that node doesn't appear with leofs-adm status, Why?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="What should I do when a timeout error happen during upload a very large file?" href="#what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file">
+                What should I do when a timeout error happen during upload a very large file?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="If nodes in a cluster are connected using DNS names, When will DNS lookups happen?" href="#if-nodes-in-a-cluster-are-connected-using-dns-names-when-will-dns-lookups-happen">
+                If nodes in a cluster are connected using DNS names, When will DNS lookups happen?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Why doesn't leofs-adm respond to a command like leofs-adm status?" href="#why-doesnt-leofs-adm-respond-to-a-command-like-leofs-adm-status">
+                Why doesn't leofs-adm respond to a command like leofs-adm status?
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="faq-leofs-administration">FAQ: LeoFS Administration<a class="headerlink" href="#faq-leofs-administration" title="Permanent link">&para;</a></h1>
+<!-- toc -->
+
+<h2 id="where-can-i-get-the-packages-for-leofs">Where can I get the packages for LeoFS?<a class="headerlink" href="#where-can-i-get-the-packages-for-leofs" title="Permanent link">&para;</a></h2>
+<p>You can get the packages by platform from <a href="http://leo-project.net/leofs/download.html" target="_blank">LeoFS website</a>, and LeoFS package for FreeBSD has been published at <a href="http://www.freshports.org/databases/leofs" target="_blank">FreeBSD Fresh Ports</a>.</p>
+<h2 id="how-can-i-run-my-leofs-cluster-automatically">How can I run my LeoFS cluster automatically?<a class="headerlink" href="#how-can-i-run-my-leofs-cluster-automatically" title="Permanent link">&para;</a></h2>
+<p>Currently after restarting a storage node,  you need to issue the resume command with leofs-adm script manually like this.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm resume storage_0@127.0.0.1</code></pre>
+
+
+<p>We're planing to provide LeoFS's automated operations like <code class="codehilite">auto-compaction</code>, <code class="codehilite">auto-rebalance</code> and others with LeoFS v1.2, v1.4 and v2.0. Actually, <code class="codehilite">auto-compaction</code> which was already supported with v1.2.</p>
+<h2 id="how-do-multiple-users-login-into-leofs-managers-console-at-the-same-time">How do multiple users login into LeoFS Manager's console at the same time?<a class="headerlink" href="#how-do-multiple-users-login-into-leofs-managers-console-at-the-same-time" title="Permanent link">&para;</a></h2>
+<h3 id="answer-1">Answer 1:<a class="headerlink" href="#answer-1" title="Permanent link">&para;</a></h3>
+<p>Actually, there is no login status in LeoFS, but the number of listening tcp connections is limited by <a href="https://github.com/leo-project/leofs/blob/master/apps/leo_manager/priv/leo_manager_0.conf">leo_manger.conf</a> <code class="codehilite">default: console.acceptors.cui = 3</code>.
+So while using default settings, 3 connections can be connected to a manager in parallel.</p>
+<h3 id="answer-2">Answer 2:<a class="headerlink" href="#answer-2" title="Permanent link">&para;</a></h3>
+<p>Since <code class="codehilite">LeoFS v1.1.0</code>, LeoFS have the more powerful alternative option <a href="https://github.com/leo-project/leofs/blob/master/leofs-adm">leofs-adm</a> command.</p>
+<p>This command have not only same functionalities with the existing telnet way but also do NOT keep an tcp connection established for long time (connect only when issueing a command). You don't need to worry about the number of tcp connections.</p>
+<h2 id="the-result-of-the-du-command-can-be-different-with-the-actual-disk-usage">The result of the du command can be different with the actual disk-usage<a class="headerlink" href="#the-result-of-the-du-command-can-be-different-with-the-actual-disk-usage" title="Permanent link">&para;</a></h2>
+<p>In order to reduce system resource usage for calculating the result of the <code class="codehilite">du</code> command, LeoFS keep that information on memory and when stopping itself, LeoFS save those data into a local file. Then when restarting, LeoFS load those on memory.</p>
+<p>So if LeoFS is stopped unintentionally like killing by OOM killer, those data can become inconsistent with actual usage.</p>
+<p>If you get into this situation, you can recover those data by issueing the <code class="codehilite">compact-start</code> command to the node. after finishing the compaction, the result of the du command will be consitent with actual usage.</p>
+<h2 id="when-issueing-the-recover-node-command-the-leofs-can-get-into-high-load">When issueing the recover node command the LeoFS can get into high load<a class="headerlink" href="#when-issueing-the-recover-node-command-the-leofs-can-get-into-high-load" title="Permanent link">&para;</a></h2>
+<p>Since the <code class="codehilite">recover-node</code> command can lead to issue lots of disk I/O and consume network bandwidth, if you face to issue the recover-node to multiple nodes at once, LeoFS can get into high load and become unresponsive. So we recommend you execute the recover-node command to target nodes one by one.</p>
+<p>If this solution could not work for you, you're able to control how much recover-node consume system resources by changing <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L214-L230">the MQ-related parameters in leo_storage.conf</a>.</p>
+<h2 id="what-should-i-do-when-too-many-processes-errors-happen">What should I do when Too many processes errors happen?<a class="headerlink" href="#what-should-i-do-when-too-many-processes-errors-happen" title="Permanent link">&para;</a></h2>
+<p>LeoFS usually try to keep the number of Erlang processes as minimum as possible, but there are some exceptions when doing something asynchronously.</p>
+<ul>
+<li>Replicating an object to the non-primary assigned nodes</li>
+<li>Retrying to replicate an object when the previous attempt failed</li>
+</ul>
+<p>Given that LeoFS suffered from very high load AND there are some nodes downed for some reason, The number of Erlang processes gradually have increased and might have reached the sysmte limit.</p>
+<p>We recommend users to set an appropriate value which depends on your workload to the <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L438">+P option</a>. Also if the <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L438">+P option</a> does NOT work for you, there are some possibilities that some external system resources like disk, network equipments have broken, Please check out the dmesg/syslog on your sysmtem.</p>
+<h2 id="how-do-i-set-a-number-of-containers-at-leofs-storage-configuration">How do I set "a number of containers" at LeoFS Storage configuration?<a class="headerlink" href="#how-do-i-set-a-number-of-containers-at-leofs-storage-configuration" title="Permanent link">&para;</a></h2>
+<p>Objects/files are stored into LeoFS Storage containers which are log-structured files. LeoFS has the <code class="codehilite">data-compaction</code> mechanism in order to remove unncessary objects/files from the object-containers.</p>
+<p>LeoFS's performance is affected by the data-compaction. And also, LeoFS Storage temporally creates a new file of a object-container corresponding to the compaction target container, which means during the data-compaction needs disk space for the new file of object-container(s).</p>
+<p>If <code class="codehilite">write, update and delete operation</code> is a lot, we recommend that the number of containers is 32 OR 64 because it's possible to make effect of the data-compaction at a minimum as much as possible.</p>
+<h3 id="in-conclusiton">In conclusiton:<a class="headerlink" href="#in-conclusiton" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Read operation &gt; Write operation:<ul>
+<li><a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L46">A total number of containers</a> = 8</li>
+</ul>
+</li>
+<li>A lot of write, update and delete operation:<ul>
+<li><a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L46">A total number of containers</a> = 32 OR 64 <em>(depends on the disk capacity and performance)</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="leo_storage-can-not-start-due-to-enif_send_failed-on-non-smp-vm">leo_storage can not start due to "enif_send_failed on non smp vm"<a class="headerlink" href="#leo_storage-can-not-start-due-to-enif_send_failed-on-non-smp-vm" title="Permanent link">&para;</a></h2>
+<p>When starting <code class="codehilite">leo_storage</code> on a single core machine which crashes with an erl_nif error.</p>
+<pre class="codehilite"><code class="language-bash linenums">## Error log
+enif_send: env==NULL on non-SMP VM
+Aborted (core dumped)</code></pre>
+
+
+<p>In this case, you have faced with <a href="https://github.com/leo-project/leofs/issues/302">LeoFS Issue#320</a>. You need to set a Erlang's VM flag, <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L417">-smp</a> in your <code class="codehilite">leo_storage.conf</code> as follows:</p>
+<pre class="codehilite"><code class="language-bash linenums">## leo_storage.conf
+erlang.smp = enable</code></pre>
+
+
+<h2 id="why-is-the-speed-of-rebalancerecover-command-too-slow">Why is the speed of rebalance/recover command too slow?<a class="headerlink" href="#why-is-the-speed-of-rebalancerecover-command-too-slow" title="Permanent link">&para;</a></h2>
+<p>You must hit <a href="https://github.com/leo-project/leofs/issues/359">LeoFS Issue#359</a>. Since this issue has been fixed with <code class="codehilite">LeoFS v1.2.9</code>, we'd recommend you upgrading to the v1.2.9 or higher one, and set an appropriate value for your environment to <a href="https://github.com/leo-project/leofs/blob/1.3.2.1/apps/leo_storage/priv/leo_storage.conf#L212">mq.num_of_mq_procs</a> in your leo_storage.conf.</p>
+<h2 id="why-does-leofss-snmp-if-give-me-wrong-values0-instead-of-correct-values">Why does LeoFS's SNMP I/F give me wrong values(0) instead of correct values?<a class="headerlink" href="#why-does-leofss-snmp-if-give-me-wrong-values0-instead-of-correct-values" title="Permanent link">&para;</a></h2>
+<p>You must hit <a href="https://github.com/leo-project/leofs/issues/361">LeoFS Issue#361</a>. Since this issue has been fixed with <code class="codehilite">LeoFS v1.2.9</code>, we'd recommend you upgrading to the v1.2.9 or higher one.</p>
+<h2 id="when-adding-a-new-storage-node-that-node-doesnt-appear-with-leofs-adm-status-why">When adding a new storage node, that node doesn't appear with <code class="codehilite">leofs-adm status</code>, Why?<a class="headerlink" href="#when-adding-a-new-storage-node-that-node-doesnt-appear-with-leofs-adm-status-why" title="Permanent link">&para;</a></h2>
+<p>If you changed a WRONG node name before stopping the daemon, As a result, when a new daemon was starting, it failed to detect that the previous was still running and
+stop command did not work too.</p>
+<p>Since you can notice this kind of mistake in <code class="codehilite">error.log</code> with <code class="codehilite">LeoFS v1.2.9</code>, we'd recommend you upgrading to the v1.2.9 or higher one.</p>
+<h2 id="what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file">What should I do when a <strong>timeout</strong> error happen during upload a very large file?<a class="headerlink" href="#what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file" title="Permanent link">&para;</a></h2>
+<p>There are two configurations that could affect how often <strong>timeout</strong> could happen in leo_gateway.conf.</p>
+<ul>
+<li>http.timeout_for_body (in msecs)</li>
+<li>large_object.reading_chunked_obj_len (in bytes)</li>
+</ul>
+<p>As <strong>timeout</strong> during upload could happen when <code class="codehilite">http.timeout_for_body</code> passed during every <code class="codehilite">large_object.reading_chunked_obj_len</code> bytes read, assuming we have <code class="codehilite">http.timeout_for_body</code> set to 1000 and <code class="codehilite">large_object.reading_chunked_obj_len</code> set to 1048576, we could expect any upload to be succeeded in if we ensured at least 8Mbps(1MB/sec) stable network bandwidth.</p>
+<p>Also taking the concurrent uploads into account, we can define the expression that enables us to check whether each configuration is valid as below.</p>
+<pre class="codehilite"><code class="language-ini linenums">EXPECTED_BANDWIDTH_IN_BYTES = large_object.reading_chunked_obj_len / (http.timeout_for_body / 1000) * MAX_CONCURRENT_UPLOADS</code></pre>
+
+
+<p>For example, say we have 1Gbps(128MB/sec) stable bandwidth and 128 concurrent uploads at most then we could be ready to 1MB per connection so the below is considered as a valid configuration.</p>
+<pre class="codehilite"><code class="language-ini linenums">http.timeout_for_body = 1000
+large_object.reading_chunked_obj_len = 1048576
+# EXPECTED_BANDWIDTH_IN_BYTES = 1048576 / (1000 / 1000) * 128 = 134217728(128MB)</code></pre>
+
+
+<p>Also there is one important thing you have to care.
+To decrease the bandwidth and odds timeout could happen, you have two options.</p>
+<ul>
+<li>Decrease <code class="codehilite">large_object.reading_chunked_obj_len</code></li>
+<li>Increase <code class="codehilite">http.timeout_for_body</code></li>
+</ul>
+<p>Logically it's same between decreasing the buffer size and increasing the timeout. However there is one benefit using the former one rather than the latter. As the memory allocation request in Erlang VM happen in <code class="codehilite">large_object.reading_chunked_obj_len</code> unit, the larger buffer size we set, the more memory footprint the host running LeoGateway needs at once so that if LeoGateway accepts lots of connections and those try to upload very large files in parallel then the odds OOM could happen increase. That said, decreasing the buffer size should be the first try in terms of safety(less memory usages).</p>
+<h2 id="if-nodes-in-a-cluster-are-connected-using-dns-names-when-will-dns-lookups-happen">If nodes in a cluster are connected using DNS names, When will DNS lookups happen?<a class="headerlink" href="#if-nodes-in-a-cluster-are-connected-using-dns-names-when-will-dns-lookups-happen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The short answer is<ul>
+<li>ONLY when starting each node</li>
+<li>Rarely when the network gets unstable, and TCP connections between nodes get disconnected and re-connected later (TCP connections between nodes in a cluster keep alive and being used for RPC(remote procedure call) and any Distributed Erlang<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> feature, so once connected to others, No DNS lookups happen except abnormal cases as stated above)</li>
+</ul>
+</li>
+<li>The long/precious answer is depending on how Distributed Erlang<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> is implemented so you would have to become a master of Distributed Erlang<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> protocol, however in reality only remembering the short answer could help you in almost cases</li>
+</ul>
+<p>Given that the above answers, You would not need to be afraid of using hostnames instead of ip addresses.</p>
+<h2 id="why-doesnt-leofs-adm-respond-to-a-command-like-leofs-adm-status">Why doesn't leofs-adm respond to a command like leofs-adm status?<a class="headerlink" href="#why-doesnt-leofs-adm-respond-to-a-command-like-leofs-adm-status" title="Permanent link">&para;</a></h2>
+<p>The netcat installed on your env is probably the one distributed through netcat-traditional package and unfortunately that doesn't work for leofs-adm which requires netcat-openbsd instead. if that is the case, installing netcat-openbsd should solve the problem as reported on github issue<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://erlang.org/doc/reference_manual/distributed.html" target="_blank">Distributed Erlang</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/leo-project/leofs/issues/519" target="_blank">LEOFS' ISSUE_519</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../limits/" title="LeoFS Limits">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                LeoFS Limits
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../client/" title="LeoFS Clients">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                LeoFS Clients
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

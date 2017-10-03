@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>S3-API related Operations - LeoFS Documentation</title>
+      
+      
+      
+      
+        <meta name="author" content="LeoProject">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="LeoFS Documentation">
+    <meta property="og:image" content="None/../../../">
+    <meta name="apple-mobile-web-app-title" content="LeoFS Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                For Administrators <i class="icon icon-link"></i>
+              
+            
+              
+                System Operations <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        S3-API related Operations
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/leo-project/leofs" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          LeoFS Documentation
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          leo-project/leofs
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/leo-project/leofs/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/leo-project/leofs/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../../..">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's New?" href="../../../whats_new/">
+      What's New?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Quick Installation and Setup" href="../../../installation/quick/">
+      Quick Installation and Setup
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Building a LeoFS' cluster with Ansible" href="../../../installation/cluster/">
+      Building a LeoFS' cluster with Ansible
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Concept and Architecture</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS' Architecture" href="../../../architecture/README/">
+      LeoFS' Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway's Architecture" href="../../../architecture/leo_gateway/">
+      LeoGateway's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage's Architecture" href="../../../architecture/leo_storage/">
+      LeoStorage's Architecture
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager's Architecture" href="../../../architecture/leo_manager/">
+      LeoManager's Architecture
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">For Administrators</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Planning for Production" href="../../setup/planning_for_production/">
+      Planning for Production
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Supported Platforms" href="../../setup/supported_platforms/">
+      Supported Platforms
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Hardware Requirements" href="../../setup/hardware_requirements/">
+      Hardware Requirements
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Network Configurations" href="../../setup/network_config/">
+      Network Configurations
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Settings</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Cluster Settings" href="../../settings/cluster/">
+      Cluster Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Environment Configuration" href="../../settings/environment_config/">
+      Environment Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoManager Settings" href="../../settings/leo_manager/">
+      LeoManager Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoStorage Settings" href="../../settings/leo_storage/">
+      LeoStorage Settings
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoGateway Settings" href="../../settings/leo_gateway/">
+      LeoGateway Settings
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Interface</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="S3-API" href="../../protocols/s3/">
+      S3-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="REST-API" href="../../protocols/rest/">
+      REST-API
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFS v3" href="../../protocols/nfs_v3/">
+      NFS v3
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Operations</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Operation Flow" href="../flow/">
+      Operation Flow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Systemd Services" href="../systemd/">
+      Systemd Services
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="S3-API related Operations" href="./">
+      S3-API related Operations
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Prior Knowledge" href="#prior-knowledge">
+                Prior Knowledge
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Operations" href="#operations">
+                Operations
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Related Links" href="#related-links">
+                Related Links
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Cluster Operations" href="../cluster/">
+      Cluster Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data Operations" href="../data/">
+      Data Operations
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multi Data Center Replication" href="../multi_dc_replication/">
+      Multi Data Center Replication
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">System Administration</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Log Management" href="../../system_admin/log_management/">
+      Log Management
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Persistent Configuration" href="../../system_admin/persistent_configuration/">
+      Persistent Configuration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Migration" href="../../system_admin/migration/">
+      System Migration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="System Integration" href="../../system_admin/integration/">
+      System Integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Multiple Node Instances" href="../../system_admin/multiple_nodes/">
+      Multiple Node Instances
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Index of LeoFS' Commands" href="../../index_of_commands/">
+      Index of LeoFS' Commands
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Benchmark" href="../../../benchmark/README/">
+      Benchmark
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">FAQ</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="LeoFS Fundamentals" href="../../../faq/fundamentals/">
+      LeoFS Fundamentals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Limits" href="../../../faq/limits/">
+      LeoFS Limits
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Administration" href="../../../faq/administration/">
+      LeoFS Administration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="LeoFS Clients" href="../../../faq/client/">
+      LeoFS Clients
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Production Checklist" href="../../../production_checklist/README/">
+      Production Checklist
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="s3-api-related-operations">S3-API Related Operations<a class="headerlink" href="#s3-api-related-operations" title="Permanent link">&para;</a></h1>
+<h2 id="prior-knowledge">Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Permanent link">&para;</a></h2>
+<p>When choosing Amazon S3 API<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> as LeoGateway's protocol, you need LeoFS' S3-API related operations including <a href="#endpoint">Endpoint</a>, <a href="#user">User</a>, and <a href="#bucket">Bucket</a> operations.</p>
+<p>You can access a LeoFS system whose LeoGateway's protocol is S3-API by following the flow.</p>
+<ol>
+<li><strong>Create an endpoint</strong> to be able to access a LeoFS system's resources.</li>
+<li><strong>Create a user</strong> to separately manage the user's buckets and objects.</li>
+<li>After creating a bucket, If you need to <strong>change ACL of a bucket</strong>, you can set it as an administrator of a LeoFS system. The current version, v1.3 of LeoFS does not support</li>
+</ol>
+<h2 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h2>
+<h3 id="endpoint">Endpoint<a class="headerlink" href="#endpoint" title="Permanent link">&para;</a></h3>
+<p>You can continue to use a LeoFS system's DNS name to access its resources after you've set up an endpoint, which has a policy that controls the use of the endpoint to access the resources.</p>
+<h4 id="create-an-endpoint-add-endpoint">Create an endpoint, <code class="codehilite">add-endpoint</code><a class="headerlink" href="#create-an-endpoint-add-endpoint" title="Permanent link">&para;</a></h4>
+<p>Creates an endpoint so users can access a LeoFS system's resources.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm add-endpoint &lt;endpoint&gt;
+
+## Example
+$ leofs-adm add-endpoint leo-project.net
+OK</code></pre>
+
+
+<h4 id="remove-an-endpoint-delete-endpoint">Remove an endpoint, <code class="codehilite">delete-endpoint</code><a class="headerlink" href="#remove-an-endpoint-delete-endpoint" title="Permanent link">&para;</a></h4>
+<p>Removes an endpoint if a LeoFS system's system does not need it.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm delete-endpoint &lt;endpoint&gt;
+
+## Example
+$ leofs-adm delete-endpoint leo-project.net
+OK</code></pre>
+
+
+<h4 id="retrieve-a-list-of-endpoints-get-endpoints">Retrieve a list of endpoints, <code class="codehilite">get-endpoints</code><a class="headerlink" href="#retrieve-a-list-of-endpoints-get-endpoints" title="Permanent link">&para;</a></h4>
+<p>Retrieves a list of the endpoints if you need to know the existing endpoints.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm get-endpoints
+
+## Example
+$ leofs-adm get-endpoints
+endpoint         | created at
+-----------------+---------------------------
+leo-project.net  | 2017-04-07 10:07:31 +0900
+localhost        | 2017-04-07 10:06:18 +0900
+s3.amazonaws.com | 2017-04-07 10:06:18 +0900</code></pre>
+
+
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<p>To access a LeoFS system, its system's users need to create an account and retrieve <code class="codehilite">AccessKeyID</code> and <code class="codehilite">SecretAccessKey</code>.</p>
+<h4 id="create-a-user-create-user">Create a user, <code class="codehilite">create-user</code><a class="headerlink" href="#create-a-user-create-user" title="Permanent link">&para;</a></h4>
+<p>Creates a user's account so its user can access a LeoFS system.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm create-user &lt;user-id&gt; &lt;password&gt;
+
+## Example
+$ leofs-adm create-user leofs-user-1 PASSWORD
+access-key-id: b5f0413d45855fcc055e
+secret-access-key: b74f9ae91dd0de81f71e19f8d455a7c081f34c57</code></pre>
+
+
+<h4 id="remove-a-user-delete-user">Remove a user, <code class="codehilite">delete-user</code><a class="headerlink" href="#remove-a-user-delete-user" title="Permanent link">&para;</a></h4>
+<p>Removes a user account if a LeoFS system does not need it.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm delete-user &lt;user-id&gt;
+
+## Example
+$ leofs-adm delete-user leofs-user-1
+OK</code></pre>
+
+
+<h4 id="retrieve-a-list-of-users-get-users">Retrieve a list of users, <code class="codehilite">get-users</code><a class="headerlink" href="#retrieve-a-list-of-users-get-users" title="Permanent link">&para;</a></h4>
+<p>Retrieves a list of the users if you need to know the existing users.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm get-users
+
+## Example
+$ leofs-adm get-users
+user_id      | role_id | access_key_id          | created_at
+-------------+---------+------------------------+---------------------------
+_test_leofs  | 9       | 05236                  | 2017-04-10 09:52:39 +0900
+leofs-user-2 | 1       | b5f0413d45855fcc055e   | 2017-04-10 09:54:35 +0900</code></pre>
+
+
+<h4 id="change-role-of-a-user-update-user-role">Change role of a user, <code class="codehilite">update-user-role</code><a class="headerlink" href="#change-role-of-a-user-update-user-role" title="Permanent link">&para;</a></h4>
+<p>Updates a user's role if you need to change the role of a LeoFS system. You can choose a role from <code class="codehilite">Administrator</code> or <code class="codehilite">General user</code>.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Role Id</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td>Administrator</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>General User</td>
+</tr>
+</tbody>
+</table>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm update-user-role &lt;user-id&gt; &lt;role-id&gt;
+
+## Example
+$ leofs-adm update-user-role leofs-user-2 9
+OK
+
+## Confirm the latest list of the users
+$ leofs-adm get-users
+user_id      | role_id | access_key_id          | created_at
+-------------+---------+------------------------+---------------------------
+_test_leofs  | 9       | 05236                  | 2017-04-10 09:52:39 +0900
+leofs-user   | 1       | 3c1d889cdd2088fb9482   | 2017-04-10 09:53:33 +0900
+leofs-user-2 | 9       | b5f0413d45855fcc055e   | 2017-04-10 09:54:35 +0900</code></pre>
+
+
+<h3 id="bucket">Bucket<a class="headerlink" href="#bucket" title="Permanent link">&para;</a></h3>
+<p>To manage objects under a bucket, you need to create a bucket with <code class="codehilite">leofs-adm</code> or any client for Amazon S3 such as s3cmd<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> and DragonDisk<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
+<h4 id="create-a-bucket-add-bucket">Create a bucket, <code class="codehilite">add-bucket</code><a class="headerlink" href="#create-a-bucket-add-bucket" title="Permanent link">&para;</a></h4>
+<p>Creates a bucket so a LeoFS system' users can manage resources under its bucket.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm add-bucket &lt;bucket-name&gt; &lt;access-key-id&gt;
+
+## Example
+$ leofs-adm add-bucket backup 05236
+OK</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note: Creating bucket with the same name as one being removed</p>
+<p>It's not possible to create bucket with the same name as one currently being removed. Deletion of all objects belonging to former bucket must complete before bucket with the same name can be created again.</p>
+</div>
+<h4 id="remove-a-bucket-delete-bucket">Remove a bucket, <code class="codehilite">delete-bucket</code><a class="headerlink" href="#remove-a-bucket-delete-bucket" title="Permanent link">&para;</a></h4>
+<p>Removes a bucket if its user does not need it. The bucket name is removed right away, while objects from that bucket will be deleted in asynchronous fashion after that.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm delete-bucket &lt;bucket-name&gt; &lt;access-key-id&gt;
+
+## Example
+$ leofs-adm delete-bucket backup 05236
+OK</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note: How many delete-bucket requests can be proceeded at once</p>
+<p>8 delete-bucket requests can be proceeded at once and if there are over 8 ones then exceeded ones are pushed on a queue and will be proceeded later once the number of processing delete-bucket go down under 8.</p>
+</div>
+<h4 id="retrieve-a-list-of-the-ongoing-delete-buckets-delete-bucket-stats">Retrieve a list of the ongoing delete-buckets, <code class="codehilite">delete-bucket-stats</code><a class="headerlink" href="#retrieve-a-list-of-the-ongoing-delete-buckets-delete-bucket-stats" title="Permanent link">&para;</a></h4>
+<p>Retrieves a list of the ongoing delete-buckets if you need to know the progress of the ongoing delete-buckets.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm delete-bucket-stats &lt;bucket-name&gt;
+
+## Example
+$ leofs-adm delete-bucket-stats
+- Bucket: test_2
+node                         | state            | date
+-----------------------------+------------------+-----------------------------
+storage_3@127.0.0.1          | pending          | 2017-07-27 09:20:47 +0900
+storage_2@127.0.0.1          | monitoring       | 2017-07-27 09:21:21 +0900
+storage_1@127.0.0.1          | monitoring       | 2017-07-27 09:21:21 +0900
+storage_0@127.0.0.1          | monitoring       | 2017-07-27 09:21:22 +0900
+
+- Bucket: test_4
+node                         | state            | date
+-----------------------------+------------------+-----------------------------
+storage_3@127.0.0.1          | finished         | 2017-07-27 09:21:20 +0900
+storage_2@127.0.0.1          | finished         | 2017-07-27 09:21:18 +0900
+storage_1@127.0.0.1          | finished         | 2017-07-27 09:21:21 +0900
+storage_0@127.0.0.1          | monitoring       | 2017-07-27 09:21:10 +0900
+
+## Example (No ongoing delete-buckets)
+$ leofs-adm delete-bucket-stats
+[ERROR] Delete-bucket's stats not found</code></pre>
+
+
+<p>The below table explains what each state means.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pending</td>
+<td>Waiting on the queue.</td>
+</tr>
+<tr>
+<td>enqueuing</td>
+<td>Iterating all objects and enqueuing object identifiers into the queue if those belong to the bucket deleted.</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td>Iterating all items in the queue and deleting objects one by one.</td>
+</tr>
+<tr>
+<td>finished</td>
+<td>Finished delete-bucket and waiting for other storage nodes.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note: How long the delete-bucket records exist</p>
+<p>Once the state of every storage node transit into finished, the delete-bucket records get deleted within several tens of seconds.</p>
+</div>
+<h4 id="reset-a-delete-bucket-stats-record-reset-delete-bucket-stats">Reset a delete-bucket-stats record, <code class="codehilite">reset-delete-bucket-stats</code><a class="headerlink" href="#reset-a-delete-bucket-stats-record-reset-delete-bucket-stats" title="Permanent link">&para;</a></h4>
+<p>Reset a delete-bucket-stats record if you face some trouble that inconsistency between manager nodes and storage nodes happened and only way to solve this problem is to reset(delete) a delete-bucket-stats record.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm reset-delete-bucket-stats &lt;bucket-name&gt;
+
+## Example
+$ leofs-adm reset-delete-bucket-stats bucket
+OK</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note: Removing inaccessible objects after <code class="codehilite">reset-delete-bucket-stats</code></p>
+<p>Since this operation aborts deletion of objects belonging to (already deleted) bucket, it might be a good idea to create and delete bucket with same name again after <code class="codehilite">reset-delete-bucket-stats</code>, to make sure that bucket deletion completes properly and no stale objects remain. </p>
+</div>
+<h4 id="retrieve-a-list-of-buckets-get-buckets">Retrieve a list of buckets, <code class="codehilite">get-buckets</code><a class="headerlink" href="#retrieve-a-list-of-buckets-get-buckets" title="Permanent link">&para;</a></h4>
+<p>Retrieves a list of the buckets if you need to know the existing buckets.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm get-buckets
+
+## Example
+$ leofs-adm get-buckets
+cluster id   | bucket   | owner       | permissions      | redundancy method            | created at
+-------------+----------+-------------+------------------+------------------------------+---------------------------
+leofs_1      | test     | _test_leofs | Me(full_control) | copy, {n:1, w:1, r:1, d:1}   | 2017-04-10 10:57:29 +0900</code></pre>
+
+
+<h4 id="retrieve-a-bucket-get-bucket">Retrieve a bucket, <code class="codehilite">get-bucket</code><a class="headerlink" href="#retrieve-a-bucket-get-bucket" title="Permanent link">&para;</a></h4>
+<p>Retrieves a bucket if you need to know its bucket's information.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm get-bucket &lt;access-key-id&gt;
+
+## Example
+$ leofs-adm get-bucket 05236
+bucket   | permissions                            | created at
+---------+----------------------------------------+---------------------------
+backup   | Me(full_control), Everyone(read)       | 2017-04-10 10:39:01 +0900
+docs     | Me(full_control), Everyone(read)       | 2017-04-10 10:39:25 +0900
+logs     | Me(full_control), Everyone(read,write) | 2017-04-10 10:39:38 +0900
+movie    | Me(full_control)                       | 2017-04-10 10:39:45 +0900</code></pre>
+
+
+<h4 id="change-an-owner-of-a-bucket-chown-bucket">Change an owner of a bucket, <code class="codehilite">chown-bucket</code><a class="headerlink" href="#change-an-owner-of-a-bucket-chown-bucket" title="Permanent link">&para;</a></h4>
+<p>Updates an owner of a bucket if you need to change its owner to someone else.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm chown-bucket &lt;bucket&gt; &lt;access-key-id&gt;
+
+## Example
+$ leofs-adm chown-bucket test b5f0413d45855fcc055e
+OK
+
+## Confirm the latest list of the buckets
+$ leofs-adm get-buckets
+cluster id   | bucket   | owner        | permissions      | redundancy method            | created at
+-------------+----------+--------------+------------------+------------------------------+---------------------------
+leofs_1      | test     | leofs-user-2 | Me(full_control) | copy, {n:1, w:1, r:1, d:1}   | 2017-04-10 10:57:29 +0900</code></pre>
+
+
+<h4 id="update-acl-of-a-bucket-update-acl">Update ACL of a bucket, <code class="codehilite">update-acl</code><a class="headerlink" href="#update-acl-of-a-bucket-update-acl" title="Permanent link">&para;</a></h4>
+<p>Updates ACL of a bucket if you need to change it.</p>
+<pre class="codehilite"><code class="language-bash linenums">$ leofs-adm update-acl &lt;bucket&gt; &lt;access-key-id&gt; &lt;canned-ACL&gt;
+
+## Example
+$ leofs-adm update-acl test 05236 private
+ok
+$ leofs-adm update-acl test 05236 public-read
+ok
+$ leofs-adm update-acl test 05236 public-read-write
+ok</code></pre>
+
+
+<h5 id="canned-acl">Canned ACL<a class="headerlink" href="#canned-acl" title="Permanent link">&para;</a></h5>
+<p>When using S3-API, LeoFS supports a set of predefined grants, known as canned ACLs. Each canned ACL has a predefined a set of grantees and permissions. The following table lists the set of canned ACLs and the associated predefined grants.</p>
+<table>
+<thead>
+<tr>
+<th>Canned ACL</th>
+<th>Applies To</th>
+<th>Permissions Added To ACL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td>Bucket and object</td>
+<td><code class="codehilite">[default]</code> Owner gets FULL_CONTROL. No one else has access rights.</td>
+</tr>
+<tr>
+<td>public-read</td>
+<td>Bucket and object</td>
+<td>Owner gets FULL_CONTROL. The AllUsers group gets READ access.</td>
+</tr>
+<tr>
+<td>public-read-write</td>
+<td>Bucket and object</td>
+<td>Owner gets FULL_CONTROL. The AllUsers group gets READ and WRITE access. Granting this on a bucket is generally not recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../admin/protocols/s3/">For Administrators / Interface / S3-API</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html" target="_blank">Amazon S3 API</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="http://s3tools.org/s3cmd" target="_blank">S3cmd: A command Line S3 Client and Backup for Linux and Mac</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="http://www.s3-client.com" target="_blank">DragonDisk: A cloud storage client</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+          <aside class="copyright" role="note">
+            
+              (c) 2012-2017 LeoProject. All rights reserved. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../systemd/" title="Systemd Services">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Systemd Services
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../cluster/" title="Cluster Operations">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Cluster Operations
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../..';
+      var repo_id  = 'leo-project/leofs';
+    </script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-5301881-3', 'leo-project.net');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>
