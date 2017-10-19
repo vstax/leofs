@@ -72,13 +72,13 @@ http.port
 http.ssl_port
 ```
 
-Please note that this list might be not complete as new options might be added to config files. When using this feature, **it's up to user to ensure that all paths above point to different directories**. Trying to share the same ports or snmp_conf setting between nodes would result in second instance failing to start, but trying to share log or queue directory could lead to disasterous results. **Always double-check that all paths are different before using this feature.**
+Please note that this list might be not complete as new options might be added to config files. When using this feature, **it's up to user to ensure that all paths above point to different directories**. Trying to share the same ports or snmp_conf setting between nodes would result in second instance failing to start, but trying to share log or queue directory could lead to disastrous results. **Always double-check that all paths are different before using this feature.**
 
 !!! note "Note: Multiple LeoManager instances"
     It is possible to run multiple instances of LeoManager as well, but the resulting configuration and `leofs-adm` operations would be more complicated, so it's not recommended (as results of error might be severe). It would be better to use separate VMs or containers for different LeoManagers.
 
 !!! note "Note: Interacting with other instances through launch script"
-    It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: `sudo -u leofs sh -c "export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console"`
+    It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: `sudo -H -u leofs sh -c "export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console"`
 
 ## Example configuration
 
@@ -148,7 +148,7 @@ erlang.crash_dump = /var/log/leofs/leo_storage_second/erl_crash.dump
 snmp_conf = ./snmp/snmpa_storage_1/leo_storage_snmp
 ```
 
-Each node requires own set of directories with appropriate permissiosn:
+Each node requires own set of directories with appropriate permissions:
 ```
 # mkdir -p /var/leofs/leo_storage/work/queue /var/log/leofs/leo_storage/app /var/leofs/leo_storage/work/ord_reda /var/log/leofs/leo_storage/sasl
 # chown -R leofs:leofs /var/leofs/leo_storage/ /var/log/leofs/

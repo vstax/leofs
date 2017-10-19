@@ -813,6 +813,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../health_check/" title="Health Check" class="md-nav__link">
+      Health Check
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1005,7 +1017,7 @@
                 
                 <h1 id="mutiple-instances-of-nodes-on-the-same-system">Mutiple instances of nodes on the same system<a class="headerlink" href="#mutiple-instances-of-nodes-on-the-same-system" title="Permanent link">&para;</a></h1>
 <h2 id="description-and-requirements">Description and requirements<a class="headerlink" href="#description-and-requirements" title="Permanent link">&para;</a></h2>
-<p>Starting from v1.4.0, there is support for running multiple instances of the same node types on a single system (without use of containers or other type of isolation). This is useful for users who want to do things like</p>
+<p>Starting from v1.3.8, there is support for running multiple instances of the same node types on a single system (without use of containers or other type of isolation). This is useful for users who want to do things like</p>
 <ul>
 <li>Running two (or more) gateways on the same system (in the same or different mode, e.g. S3 gateway + REST gateway)</li>
 <li>Running two (or more) completely isolated clusters with different settings on the same set of storage servers</li>
@@ -1099,7 +1111,7 @@ http.ssl_port
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note: Interacting with other instances through launch script</p>
-<p>It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: <code class="codehilite">sudo -u leofs sh -c &quot;export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console&quot;</code></p>
+<p>It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: <code class="codehilite">sudo -H -u leofs sh -c &quot;export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console&quot;</code></p>
 </div>
 <h2 id="example-configuration">Example configuration<a class="headerlink" href="#example-configuration" title="Permanent link">&para;</a></h2>
 <p>Here is fully working configuration example for two storage nodes belonging to two different clusters and working on the same system. Second instance is called "second" here (unit file for it is located at <code class="codehilite">/etc/systemd/system/leofs-storage-second.service</code> and it contains <code class="codehilite">Environment=NODE_EXTRA_NAME=second</code> setting).</p>
@@ -1213,7 +1225,7 @@ lrwxrwxrwx. 1 root leofs 31 Sep 19 21:09 /etc/leofs/leo_storage_second/leo_stora
 </pre></div>
 </td></tr></table>
 
-<p>Each node requires own set of directories with appropriate permissiosn:</p>
+<p>Each node requires own set of directories with appropriate permissions:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1262,13 +1274,13 @@ lrwxrwxrwx. 1 root leofs 31 Sep 19 21:09 /etc/leofs/leo_storage_second/leo_stora
           </a>
         
         
-          <a href="../../index_of_commands/" title="Index of LeoFS' Commands" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../health_check/" title="Health Check" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Index of LeoFS' Commands
+                Health Check
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
