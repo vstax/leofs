@@ -19,8 +19,10 @@ This is advanced feature aimed at existing LeoFS users who need to run another c
 
 Let's say we have LeoStorage instance running through systemd (`leofs-storage` service) and currently it loads configuration from `/etc/leofs/leo_storage`. We want to run another instance on the same system; it needs separate name. In this example, we'll call it "second". To create such instance:
 
-1. Create local copy of systemd unit file with new name (EL7 version): `cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service`.
-1. Create local copy of systemd unit file with new name (Ubuntu 16.04 version): `cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service`.
+1. Create local copy of systemd unit file with new name
+    - (EL7 version): `cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service`.
+1b.
+    - (Ubuntu 16.04 version): `cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service`.
 2. Edit `/etc/systemd/system/leofs-storage-second.service`, changing `Environment=NODE_EXTRA_NAME=` line to `Environment=NODE_EXTRA_NAME=second`.
 3. Reload systemd configuration: `systemctl daemon-reload`.
 
