@@ -1047,8 +1047,8 @@
 <p>Let's say we have LeoStorage instance running through systemd (<code class="codehilite">leofs-storage</code> service) and currently it loads configuration from <code class="codehilite">/etc/leofs/leo_storage</code>. We want to run another instance on the same system; it needs separate name. In this example, we'll call it "second". To create such instance:</p>
 <ol>
 <li>Create local copy of systemd unit file with new name<ul>
-<li>(EL7 version): <code class="codehilite">cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
-<li>(Ubuntu 16.04 version): <code class="codehilite">cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
+<li>EL7&nbsp;version: <code class="codehilite">cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
+<li>Ubuntu&nbsp;16.04&nbsp;version: <code class="codehilite">cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
 </ul>
 </li>
 <li>Edit <code class="codehilite">/etc/systemd/system/leofs-storage-second.service</code>, changing <code class="codehilite">Environment=NODE_EXTRA_NAME=</code> line to <code class="codehilite">Environment=NODE_EXTRA_NAME=second</code>.</li>
