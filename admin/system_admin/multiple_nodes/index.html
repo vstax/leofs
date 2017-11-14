@@ -1046,17 +1046,19 @@
 <h2 id="preparing-more-instances-of-the-same-node">Preparing more instances of the same node<a class="headerlink" href="#preparing-more-instances-of-the-same-node" title="Permanent link">&para;</a></h2>
 <p>Let's say we have LeoStorage instance running through systemd (<code class="codehilite">leofs-storage</code> service) and currently it loads configuration from <code class="codehilite">/etc/leofs/leo_storage</code>. We want to run another instance on the same system; it needs separate name. In this example, we'll call it "second". To create such instance:</p>
 <ol>
-<li>Create local copy of systemd unit file with new name. For EL7: <code class="codehilite">cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>; for Ubuntu 16.04: <code class="codehilite">cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code> (default location of systemd unit files differs between distributions and can be checked in "UNIT FILE LOAD PATH" section of systemd.unit(5) man page).</li>
+<li>Create local copy of systemd unit file with new name (EL7 version): <code class="codehilite">cp /usr/lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
+<li>Create local copy of systemd unit file with new name (Ubuntu 16.04 version): <code class="codehilite">cp /lib/systemd/system/leofs-storage.service /etc/systemd/system/leofs-storage-second.service</code>.</li>
 <li>Edit <code class="codehilite">/etc/systemd/system/leofs-storage-second.service</code>, changing <code class="codehilite">Environment=NODE_EXTRA_NAME=</code> line to <code class="codehilite">Environment=NODE_EXTRA_NAME=second</code>.</li>
-<li>Reload systemd configuration: <code class="codehilite">systemctl daemon-reload</code></li>
+<li>Reload systemd configuration: <code class="codehilite">systemctl daemon-reload</code>.</li>
 </ol>
+<p>First step here depends on distribution because default location of systemd unit file can differ; it can be checked in "UNIT FILE LOAD PATH" section of systemd.unit(5) man page.</p>
 <p>This instance would try to load configuration from <code class="codehilite">/etc/leofs/leo_storage_second</code> upon launch. This configuration hierarchy needs to be created as well:</p>
 <ol>
-<li>Create new configuration directory and *.d subdirectory: <code class="codehilite">mkdir -p /etc/leofs/leo_storage_second/leo_storage.d</code></li>
-<li>Change permissions of configuration directory so it's <strong>writable</strong> by user running LeoFS ("leofs", unless changed manually): <code class="codehilite">chown leofs:leofs /etc/leofs/leo_storage_second</code></li>
-<li>Copy main configuration file (if you plan to change it) or symlink it (if you only plan to use conf.d-style configuration override): <code class="codehilite">cp /etc/leofs/leo_storage/leo_storage.conf /etc/leofs/leo_storage_second/</code></li>
+<li>Create new configuration directory and *.d subdirectory: <code class="codehilite">mkdir -p /etc/leofs/leo_storage_second/leo_storage.d</code>.</li>
+<li>Change permissions of configuration directory so it's <strong>writable</strong> by user running LeoFS ("leofs", unless changed manually): <code class="codehilite">chown leofs:leofs /etc/leofs/leo_storage_second</code>.</li>
+<li>Copy main configuration file (if you plan to change it) or symlink it (if you only plan to use conf.d-style configuration override): <code class="codehilite">cp /etc/leofs/leo_storage/leo_storage.conf /etc/leofs/leo_storage_second/</code>.</li>
 <li>Change configuration of new node, ensuring all paths and ports point to different location from first instance of that node.</li>
-<li>Create directories (logs/queue/etc) for the new node and set appropriate permissions on them</li>
+<li>Create directories (logs/queue/etc) for the new node and set appropriate permissions on them.</li>
 </ol>
 <h2 id="list-of-options-that-must-have-different-settings">List of options that must have different settings<a class="headerlink" href="#list-of-options-that-must-have-different-settings" title="Permanent link">&para;</a></h2>
 <p>All these options must be explicitly set in config files and have different settings for each instance of the node on the same system. For gateway and storage:</p>
